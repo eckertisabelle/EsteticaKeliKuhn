@@ -1,0 +1,3910 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estética Keli Kuhn</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-pink: #f8c8dc;
+      --dark-pink: #e0829d;
+      --bg-pink: #fff5f8;
+      --gold: #d4af37;
+      --dark-gold: #aa820a;
+      --text-color: #4a3e3d;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+      background-color: #fafafa;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .logo { font-family: 'Playfair Display', serif; }
+
+    .page-view { display: none; }
+    .page-view.active { display: block; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo { font-size: 1.8rem; font-weight: 700; color: var(--dark-pink); cursor: pointer; }
+    .logo span { color: var(--gold); }
+
+    nav ul { display: flex; list-style: none; align-items: center; gap: 15px; }
+
+    nav a {
+      text-decoration: none;
+      pointer-events: auto;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+    nav a:hover { color: var(--dark-pink); }
+
+    .btn-cart {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--white);
+      border: 2px solid var(--gold);
+      color: var(--dark-gold);
+      padding: 8px 14px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .btn-cart:hover { background-color: var(--gold); color: var(--white); }
+
+    .cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: var(--dark-pink);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: bold;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-staff-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background-color: #fdfbf7;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      color: var(--dark-gold);
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(212, 175, 55, 0.2);
+    }
+    .btn-staff-circle:hover {
+      background-color: var(--gold);
+      color: var(--white);
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+    }
+
+    .hero {
+      background: #fafafa;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      padding: 0 20px;
+    }
+
+    .hero-text h1 { font-size: 3rem; margin-bottom: 15px; color: #fff; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); }
+    .hero-brand { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--gold); margin-bottom: 22px; text-shadow: none; }
+    .hero-text .btn-services-link { display: inline-block; margin-top: 16px; padding: 14px 30px; background: var(--primary-pink); color: var(--text-color); border: 2px solid var(--gold); }
+    .hero-text .btn-services-link:hover { background: var(--dark-pink); color: #fff; }
+    .btn-services-booking { padding: 16px 40px; font-size: 1.12rem; min-width: 230px; }
+    .hero-text p { font-size: 1.1rem; margin-bottom: 25px; }
+    .hero-text button { margin-top: 0; }
+
+    .section { padding: 60px 8%; text-align: center; }
+    .bg-light { background-color: var(--bg-pink); }
+
+    .title { font-size: 2.2rem; color: var(--dark-pink); margin-bottom: 40px; position: relative; }
+    .title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: var(--gold);
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 25px 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(224, 130, 157, 0.2); }
+
+    .card img.product-img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+    .card h3 { color: var(--dark-pink); margin-bottom: 20px; }
+    .product-desc { font-size: 0.85rem; color: #666; margin-bottom: 12px; flex-grow: 1; }
+    .price { font-size: 1.4rem; color: var(--gold); font-weight: 600; margin-bottom: 5px; }
+    .duration, .specialty { font-size: 0.9rem; color: #777; }
+    .avatar { font-size: 3rem; margin-bottom: 10px; }
+
+    .btn-primary, .btn-gold, .btn-buy, .btn-danger, .btn-edit, .btn-back, .btn-cancel {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary { background-color: var(--dark-pink); color: var(--text-color); }
+    .hero-text .btn-primary { padding: 18px 45px; font-size: 1.2rem; }
+    .btn-primary:hover { background-color: var(--dark-pink); }
+
+    .btn-gold { background-color: var(--primary-pink); color: var(--text-color); }
+    .btn-gold:hover { background-color: var(--dark-pink); color: var(--text-color); }
+
+    .btn-buy {
+      background-color: transparent;
+      border: 2px solid var(--dark-pink);
+      color: var(--text-color);
+      margin-top: 15px;
+      width: 100%;
+    }
+    .btn-buy:hover { background-color: var(--dark-pink); color: var(--text-color); }
+
+    .btn-danger { background-color: #e74c3c; color: var(--white); padding: 6px 12px; font-size: 0.8rem; }
+    .btn-danger:hover { background-color: #c0392b; }
+
+    .btn-edit { background-color: #f39c12; color: var(--white); padding: 6px 12px; font-size: 0.8rem; margin-right: 5px; }
+    .btn-edit:hover { background-color: #d68910; }
+
+    .btn-cancel { background-color: #7f8c8d; color: var(--white); padding: 8px 15px; font-size: 0.85rem; display: none; }
+    .btn-cancel:hover { background-color: #616a6b; }
+
+    .btn-back { background-color: #eee; color: var(--text-color); margin-bottom: 20px; }
+    .btn-back:hover { background-color: #ddd; }
+
+    .btn-block { width: 100%; }
+
+    .form-agendamento, .form-cadastro, .form-login-staff {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--white);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      text-align: left;
+      border-top: 5px solid var(--gold);
+    }
+
+    .form-agendamento h3, .form-cadastro h3, .form-login-staff h3 {
+      font-size: 1.1rem;
+      color: var(--dark-pink);
+      margin: 20px 0 10px 0;
+      border-bottom: 1px solid var(--primary-pink);
+      padding-bottom: 5px;
+    }
+    .form-agendamento h3:first-of-type, .form-cadastro h3:first-of-type { margin-top: 0; }
+
+    .form-group { margin-bottom: 18px; }
+    .form-row { display: flex; gap: 15px; }
+    .form-row .form-group { flex: 1; }
+
+    label { display: block; font-size: 0.9rem; margin-bottom: 5px; font-weight: 500; }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
+    }
+
+    
+    .aviso-cliente {
+      display: none;
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      background-color: var(--bg-pink);
+      border-left: 4px solid var(--gold);
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .dashboard-staff { display: none; max-width: 1000px; margin: 0 auto; text-align: left; }
+
+    .staff-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--white);
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      border-left: 5px solid var(--gold);
+      margin-bottom: 30px;
+    }
+    .staff-header h3 { color: var(--dark-pink); font-size: 1.4rem; }
+
+    .staff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .panel-box {
+      background: var(--white);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
+
+    .panel-box h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--dark-pink);
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--primary-pink);
+      padding-bottom: 5px;
+    }
+
+    /* Padronização dos painéis administrativos com a largura do Painel geral. */
+    #staff-dashboard { width: 100%; max-width: 1000px; }
+    .staff-tab-content { width: 100%; }
+    .staff-tab-content > .panel-box,
+    .staff-tab-content > .staff-grid { width: 100%; }
+    .staff-tab-content .panel-box { min-width: 0; }
+    #staff-tab-clientes .panel-box h4 { text-align: right; }
+
+    /* A aba Vendas segue o mesmo formato da aba Produtos: um painel por linha. */
+    #staff-tab-vendas .staff-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      align-items: start;
+      gap: 25px;
+    }
+    #staff-tab-vendas .staff-grid > .panel-box { width: 100%; min-width: 0; }
+
+    .table-custom { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; }
+    .table-custom th, .table-custom td { padding: 10px; text-align: left; border-bottom: 1px solid #eee; }
+    .table-custom th { color: var(--dark-gold); background-color: var(--bg-pink); }
+
+
+    
+    #staff-dashboard .staff-header { margin-bottom: 42px; }
+
+    
+    #modalNovaFuncionaria.modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(40, 30, 35, 0.55);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-y: auto;
+    }
+    #modalNovaFuncionaria .modal-content {
+      position: relative;
+      background: var(--white);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-top: 5px solid var(--gold);
+      border-radius: 12px;
+      padding: 34px 32px;
+      width: 100%;
+      max-width: 520px;
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+    #modalNovaFuncionaria .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      font-size: 2.25rem;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--text-color);
+      cursor: pointer;
+      border: none;
+      border-radius: 50%;
+      background: transparent;
+    }
+    #modalNovaFuncionaria .close-modal:hover { background: var(--bg-pink); color: var(--dark-pink); }
+    #modalNovaFuncionaria .modal-content h3 { padding-right: 42px; }
+
+    .staff-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 0 0 25px;
+    }
+    .staff-tab-button {
+      border: 1px solid var(--gold);
+      background: #fff;
+      color: var(--dark-gold);
+      border-radius: 22px;
+      padding: 10px 22px;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .staff-tab-button.active,
+    .staff-tab-button:hover {
+      background: var(--dark-pink);
+      color: #fff;
+      border-color: var(--dark-pink);
+    }
+    .staff-tab-content { display: none; }
+    .staff-tab-content.active { display: block; }
+    .filtros-clientes {
+      background: #fff9fb;
+      border: 1px solid rgba(212, 175, 55, .35);
+      border-radius: 10px;
+      padding: 18px;
+      margin: 18px 0;
+    }
+    .filtros-clientes h5 {
+      color: var(--dark-pink);
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+    .filtros-clientes .form-group { margin-bottom: 12px; }
+
+    .empty-msg { text-align: center; color: #888; font-size: 0.9rem; padding: 15px 0; }
+    .error-msg { color: #e74c3c; font-size: 0.85rem; margin-top: 5px; display: none; }
+
+
+    .texto-introducao {
+      max-width: 850px;
+      margin: -15px auto 20px;
+      color: #666;
+    }
+    .texto-informativo {
+      max-width: 900px;
+      margin: 30px auto 0;
+      padding: 28px;
+      text-align: left;
+      background: #fff;
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    }
+    .texto-informativo h3 {
+      color: var(--dark-pink);
+      margin-bottom: 10px;
+    }
+    .texto-informativo p {
+      color: #666;
+      min-height: 55px;
+    }
+
+    .contato-aviso {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--primary-pink);
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .contato-aviso strong { color: var(--dark-pink); display: block; margin-bottom: 5px; font-size: 1rem; }
+
+    .retirada-box {
+      background-color: #fff8e6;
+      padding: 18px;
+      border-radius: 8px;
+      border: 1px solid var(--gold);
+      margin-top: 25px;
+      text-align: center;
+    }
+    .retirada-box strong { color: var(--dark-gold); display: block; margin-bottom: 5px; font-size: 1rem; }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px dashed #eee;
+    }
+
+    footer { background-color: var(--text-color); color: var(--white); text-align: center; padding: 20px; font-size: 0.85rem; }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 15px; }
+      .form-row { flex-direction: column; gap: 0; }
+      .hero-text h1 { font-size: 2.2rem; }
+      .staff-header { flex-direction: column; gap: 15px; text-align: center; }
+    }
+
+
+    
+    .btn-primary,
+    .btn-gold,
+    .btn-cart,
+    .btn-staff-circle,
+    .btn-buy,
+    .btn-danger,
+    .btn-edit,
+    .btn-back,
+    .btn-cancel,
+    .staff-tab-button,
+    .hero-text .btn-services-link {
+      background-color: var(--primary-pink) !important;
+      color: var(--text-color) !important;
+      border: none !important;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-primary:hover,
+    .btn-gold:hover,
+    .btn-cart:hover,
+    .btn-staff-circle:hover,
+    .btn-buy:hover,
+    .btn-danger:hover,
+    .btn-edit:hover,
+    .btn-back:hover,
+    .btn-cancel:hover,
+    .staff-tab-button:hover,
+    .staff-tab-button.active,
+    .hero-text .btn-services-link:hover {
+      background-color: var(--dark-pink) !important;
+      color: var(--white) !important;
+      border: none !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(224, 130, 157, 0.25);
+    }
+
+    .btn-staff-circle:hover { transform: scale(1.05); }
+
+  
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; margin-top: 20px; }
+    .metric-card { background: var(--bg-pink); border: 1px solid rgba(212,175,55,.35); border-radius: 10px; padding: 16px; text-align: center; }
+    .metric-card h5 { color: var(--dark-gold); margin-bottom: 6px; }
+    .metric-card p { color: var(--dark-pink); font-size: 1.35rem; font-weight: 600; }
+  
+    
+    @media (max-width: 768px) {
+      .staff-tabs, nav ul, .form-row, .staff-grid { flex-wrap: wrap !important; }
+      .staff-tabs { gap: 6px; overflow-x: auto; }
+      .staff-tab-button { flex: 1 1 42%; min-width: 125px; }
+      .form-row > *, .staff-grid > *, .panel-box { width: 100% !important; min-width: 0 !important; }
+      .section, .panel-box { padding: 16px !important; }
+      table { min-width: 620px; }
+      .table-custom { display: block; overflow-x: auto; white-space: nowrap; }
+      input, select, textarea, button { max-width: 100%; }
+      .cards-container { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    }
+    @media (max-width: 480px) {
+      .cards-container { grid-template-columns: 1fr !important; }
+      .title { font-size: 1.7rem !important; }
+      .btn-primary, .btn-gold { width: 100%; }
+    }
+
+    /* Arte abstrata da tela inicial — inspirada nas formas da referência.
+       Todo o desenho é vetorial e está incorporado ao HTML. */
+    #page-home .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      height: min(78vh, 790px);
+      min-height: 630px;
+      background: #fff8f1;
+      padding: 55px 24px;
+    }
+
+    #page-home .hero-art {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    #page-home .hero-art--mobile { display: none; }
+
+    #page-home .hero-text {
+      position: relative;
+      width: min(100%, 550px);
+      padding: clamp(32px, 5vw, 62px) clamp(22px, 4vw, 57px);
+      background: rgba(255, 253, 251, 0.92);
+      border: 1px solid rgba(212, 175, 55, 0.47);
+      border-radius: 30px;
+      box-shadow: 0 18px 55px rgba(142, 96, 96, 0.10);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+
+    #page-home .hero-text::before {
+      content: '';
+      display: block;
+      width: 68px;
+      height: 3px;
+      margin: 0 auto 24px;
+      background: linear-gradient(90deg, #edb9cd, #d4af37, #edb9cd);
+      border-radius: 10px;
+    }
+
+    #page-home .hero-brand {
+      font-size: clamp(2.35rem, 4vw, 3.5rem);
+      line-height: 1.18;
+      color: var(--dark-gold);
+      margin-bottom: 31px;
+      text-shadow: none;
+    }
+
+    #page-home .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    #page-home .hero-actions .btn-primary {
+      margin: 0;
+      max-width: 100%;
+      border-radius: 30px;
+      line-height: 1.5;
+      box-shadow: 0 4px 15px rgba(204, 142, 165, 0.12);
+    }
+
+    #page-home .hero-actions .btn-services-link {
+      margin-top: 0;
+      font-size: 0.97rem;
+      max-width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      #page-home .hero {
+        height: auto;
+        min-height: 590px;
+        padding: 65px 17px;
+      }
+      #page-home .hero-art--desktop { display: none; }
+      #page-home .hero-art--mobile { display: block; }
+      #page-home .hero-text {
+        width: min(100%, 480px);
+        padding: 39px 25px;
+        border-radius: 25px;
+      }
+      #page-home .hero-brand { font-size: clamp(2.2rem, 7vw, 3rem); }
+      #page-home .hero-actions .btn-primary { width: 100%; font-size: 1.03rem; padding: 15px 18px; }
+      #page-home .hero-actions .btn-services-link { font-size: 0.91rem; }
+    }
+
+    @media (max-width: 390px) {
+      #page-home .hero-text { padding: 32px 18px; }
+      #page-home .hero-brand { font-size: 2.1rem; }
+    }
+
+
+    /* Administradores: todos os painéis seguem a largura do cartão "Bem-vinda".
+       Regra restrita à área administrativa; não altera o restante do site. */
+    #page-funcionaria .staff-tab-content {
+      width: 100%;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #page-funcionaria .staff-tab-content .staff-grid {
+      grid-template-columns: minmax(0, 1fr);
+      width: 100%;
+    }
+
+    #page-funcionaria .staff-tab-content .panel-box {
+      box-sizing: border-box;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+
+    /* Somente alinhamento dos textos dentro dos painéis administrativos.
+       Não altera dimensões, distribuição dos campos ou posicionamento dos botões. */
+    #page-funcionaria .staff-tab-content .panel-box {
+      text-align: left;
+    }
+    #page-funcionaria .staff-tab-content .panel-box h4,
+    #page-funcionaria .staff-tab-content .panel-box .table-custom th,
+    #page-funcionaria .staff-tab-content .panel-box .table-custom td,
+    #page-funcionaria .staff-tab-content .panel-box .empty-msg,
+    #page-funcionaria .staff-tab-content .panel-box .metric-card {
+      text-align: left;
+    }
+    #page-funcionaria .staff-tab-content .panel-box input,
+    #page-funcionaria .staff-tab-content .panel-box select,
+    #page-funcionaria .staff-tab-content .panel-box textarea {
+      text-align: left;
+    }
+    #page-funcionaria .staff-tab-content .panel-box button {
+      text-align: center;
+    }
+
+
+    /* Apenas a vitrine da aba Produtos: três produtos por linha e fotos verticais. */
+    #page-produtos-pagina #vitrine-produtos-completa {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    #page-produtos-pagina #vitrine-produtos-completa .card img.product-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      background-color: var(--bg-pink);
+    }
+
+    /* Adaptação da vitrine para tablets. No celular, permanecem as regras originais. */
+    @media (min-width: 769px) and (max-width: 900px) {
+      #page-produtos-pagina #vitrine-produtos-completa {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="logo" onclick="navegarPara('home')"><span>Estética Keli Kuhn</span></div>
+    <nav>
+      <ul>
+        <li><a onclick="navegarPara('home')">Início</a></li>
+        <li><a onclick="navegarPara('sobre', 'servicos')">Serviços</a></li>
+        <li><a onclick="navegarPara('sobre', 'equipe')">Profissionais</a></li>
+        <li><a onclick="navegarPara('produtos-pagina')">Produtos</a></li>
+        <li><a onclick="navegarPara('cadastro')">Cadastro</a></li>
+        <li><a onclick="navegarPara('agendamento')" class="btn-gold">Agendar Horário</a></li>
+        <li>
+          <a onclick="navegarPara('carrinho')" class="btn-cart" title="Ver Carrinho de Compras">
+            🛒 <span id="cart-count" class="cart-badge">0</span>
+          </a>
+        </li>
+        <li><a onclick="navegarPara('funcionaria')" class="btn-staff-circle" title="Sou Funcionária">👩‍💼</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+  <div id="page-home" class="page-view active">
+
+    <section class="hero">
+      <!-- Desenhos vetoriais em rosa e dourado: somente a página Início. -->
+      <svg class="hero-art hero-art--desktop" viewBox="0 0 1440 780" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <rect width="1440" height="780" fill="#fff8f1" />
+        <!-- Formas recortadas junto às bordas, como na imagem de referência. -->
+        <path d="M-92 1 C-18 -61 79 -57 148 -21 C179 4 154 71 92 88 C30 106 -53 75 -92 35Z" fill="#eac76b"/>
+        <path d="M-67 0 C-3 -43 96 -38 133 -9 C175 28 114 55 62 55 C2 57 -44 34 -67 0Z" fill="none" stroke="#aa820a" stroke-width="4"/>
+        <path d="M449 -83 C493 -115 584 -61 595 -8 C604 38 574 76 520 69 C458 61 415 2 449 -83Z" fill="#f4d5e0"/>
+        <path d="M481 -70 C550 -112 619 -36 601 17 C587 58 544 61 513 38" fill="none" stroke="#d4af37" stroke-width="3.5"/>
+        <path d="M819 -67 C894 -101 1019 -82 1022 -22 C1025 31 956 45 898 47 C836 49 798 0 819 -67Z" fill="#d4af37"/>
+        <path d="M1230 -54 C1296 -110 1422 -61 1458 18 C1474 69 1449 119 1388 105 C1347 96 1281 68 1230 -54Z" fill="#f3cad8"/>
+        <path d="M1226 -48 C1308 -92 1397 -50 1450 12 C1498 67 1453 96 1389 91" fill="none" stroke="#aa820a" stroke-width="4"/>
+
+        <!-- Mancha rosa no canto superior esquerdo. -->
+        <path d="M-65 170 C0 118 113 118 141 188 C166 251 135 315 63 329 C-19 344 -80 303 -86 241Z" fill="#f8c8dc"/>
+        <path d="M-79 157 C-13 128 91 125 129 158 C177 201 149 285 103 303 C36 330 -34 310 -81 272" fill="none" stroke="#ad7893" stroke-width="4"/>
+        <ellipse cx="287" cy="146" rx="95" ry="84" transform="rotate(-18 287 146)" fill="#e0829d"/>
+        <path d="M236 62 C282 39 359 73 370 125 C388 187 340 230 287 224 C221 217 202 177 210 124 C216 92 222 76 236 62Z" fill="none" stroke="#bd9b3a" stroke-width="3.5"/>
+
+        <!-- Blobs dourados e suas linhas orgânicas. -->
+        <path d="M478 245 C503 184 602 157 650 203 C693 246 707 318 664 347 C626 372 536 361 488 341 C454 327 455 299 478 245Z" fill="#e6b75f"/>
+        <path d="M458 259 C476 195 516 176 580 181 C641 183 691 221 700 282 C711 341 672 358 627 351 C551 337 476 361 456 325 C446 304 450 280 458 259Z" fill="none" stroke="#ad7893" stroke-width="4"/>
+        <path d="M1020 140 C1069 98 1096 155 1150 136 C1203 118 1211 66 1278 84 C1341 103 1352 167 1328 229 C1299 288 1186 292 1133 279 C1082 266 992 206 1020 140Z" fill="#edb2c5"/>
+        <path d="M993 145 C1023 87 1068 121 1127 124 C1193 128 1190 58 1255 71 C1327 83 1366 139 1346 208 C1327 283 1252 267 1178 260 C1116 255 984 234 993 145Z" fill="none" stroke="#aa820a" stroke-width="4"/>
+        <path d="M1315 348 C1369 311 1458 332 1473 384 C1490 444 1457 513 1405 511 C1356 507 1287 419 1315 348Z" fill="#efc964"/>
+        <path d="M1315 336 C1383 312 1469 327 1481 384 C1491 446 1453 496 1396 486" fill="none" stroke="#ad7893" stroke-width="4"/>
+
+        <!-- Fragmentos arredondados ao redor do painel central. -->
+        <path d="M-41 437 C5 386 55 395 111 423 C178 458 209 421 242 434 C293 456 280 506 236 536 C195 564 141 577 112 625 C79 676 -6 639 -35 589 C-66 538 -72 483 -41 437Z" fill="#e9a8bd"/>
+        <path d="M70 703 C84 649 143 631 206 636 C269 639 305 677 289 711 C265 768 150 777 92 759 C66 753 61 727 70 703Z" fill="#f5d8df"/>
+        <path d="M46 715 C54 660 139 626 205 634 C265 641 284 669 279 696 C274 730 165 760 94 758 C55 759 41 743 46 715Z" fill="none" stroke="#aa820a" stroke-width="4"/>
+        <path d="M339 690 C370 639 391 629 414 646 C460 683 520 738 507 774 C491 808 369 796 331 772 C308 757 312 734 339 690Z" fill="#d4af37"/>
+        <path d="M882 652 C922 603 992 603 1037 627 C1080 650 1065 710 1023 752 C978 799 862 800 827 757 C808 731 847 689 882 652Z" fill="#f0c6d7"/>
+        <path d="M860 664 C909 608 986 607 1045 643 C1094 671 1067 722 1009 766" fill="none" stroke="#ad7893" stroke-width="4"/>
+        <path d="M1100 499 C1152 452 1223 468 1268 505 C1306 537 1285 594 1238 613 C1188 630 1071 597 1062 550 C1058 531 1074 519 1100 499Z" fill="#d6aa4e"/>
+        <path d="M1084 518 C1124 473 1203 454 1257 486 C1301 511 1314 551 1284 583 C1248 620 1137 623 1081 573 C1063 556 1074 533 1084 518Z" fill="none" stroke="#ab7695" stroke-width="4"/>
+        <ellipse cx="1388" cy="701" rx="102" ry="86" transform="rotate(-33 1388 701)" fill="#e0829d"/>
+        <path d="M1340 613 C1398 581 1469 627 1478 683 C1487 735 1422 769 1362 757 C1307 749 1281 682 1306 644 C1316 628 1325 620 1340 613Z" fill="none" stroke="#d4af37" stroke-width="4"/>
+
+        <!-- Pequenos acentos de linha solta. -->
+        <path d="M763 76 C782 43 821 37 846 62 C864 79 857 105 836 123" fill="none" stroke="#e3a6ba" stroke-width="3"/>
+        <path d="M758 557 C796 535 839 554 853 590 C860 615 850 631 832 643" fill="none" stroke="#d4af37" stroke-width="3"/>
+      </svg>
+
+      <!-- Versão adaptada: formas nos cantos e espaço livre para o conteúdo no celular. -->
+      <svg class="hero-art hero-art--mobile" viewBox="0 0 420 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <rect width="420" height="700" fill="#fff8f1" />
+        <path d="M-42 -29 C13 -60 102 -48 112 3 C124 52 73 79 20 67 C-37 53 -65 15 -42 -29Z" fill="#ebc367"/>
+        <path d="M-31 -30 C20 -49 91 -39 109 8 C125 51 83 58 37 48" fill="none" stroke="#aa820a" stroke-width="3"/>
+        <path d="M326 9 C367 -19 431 12 447 63 C462 116 423 153 365 132 C322 116 281 48 326 9Z" fill="#f2bdd0"/>
+        <path d="M309 5 C363 -27 422 15 443 60 C463 109 438 148 384 139" fill="none" stroke="#aa820a" stroke-width="3"/>
+        <path d="M-59 122 C-7 90 49 110 69 161 C84 205 58 247 14 244 C-32 241 -86 169 -59 122Z" fill="#f8c8dc"/>
+        <path d="M-62 130 C-5 100 64 112 78 165 C86 194 77 224 59 239" fill="none" stroke="#c58a9e" stroke-width="3"/>
+        <path d="M360 211 C391 190 441 207 464 249 C480 285 458 339 420 342 C380 345 329 260 360 211Z" fill="#e7b65e"/>
+        <path d="M357 201 C396 181 458 211 464 265 C469 311 453 332 420 338" fill="none" stroke="#b78698" stroke-width="3"/>
+        <path d="M-38 422 C19 389 84 441 78 486 C73 527 29 548 -19 523 C-71 496 -85 444 -38 422Z" fill="#e5bfcf"/>
+        <path d="M-55 423 C5 385 68 413 83 461 C95 501 54 542 21 547" fill="none" stroke="#aa820a" stroke-width="3"/>
+        <path d="M364 454 C396 417 446 441 460 483 C481 536 451 569 398 562 C354 555 330 493 364 454Z" fill="#e0829d"/>
+        <path d="M351 469 C367 429 434 421 457 474 C479 516 453 558 416 562" fill="none" stroke="#d4af37" stroke-width="3"/>
+        <path d="M-20 639 C18 605 85 607 112 652 C132 685 104 722 56 728 C10 734 -51 679 -20 639Z" fill="#d4af37"/>
+        <path d="M-29 648 C4 612 72 604 111 646 C138 676 113 710 83 723" fill="none" stroke="#ad7893" stroke-width="3"/>
+        <path d="M300 652 C353 605 416 608 446 652 C472 693 420 736 368 733 C318 731 272 684 300 652Z" fill="#f1c8d7"/>
+        <path d="M288 658 C335 612 408 599 439 646 C463 684 435 720 405 727" fill="none" stroke="#aa820a" stroke-width="3"/>
+      </svg>
+
+      <div class="hero-text">
+        <h2 class="hero-brand">Estética Keli Kuhn</h2>
+        <div class="hero-actions">
+          <button onclick="navegarPara('agendamento')" class="btn-primary">Agendar Horário</button>
+          <button onclick="navegarPara('sobre')" class="btn-primary btn-services-link">Conheça nossos serviços e profissionais</button>
+        </div>
+      </div>
+    </section>
+
+
+
+  </div>
+
+
+  
+  <div id="page-sobre" class="page-view">
+    <section class="section">
+      <button class="btn-back" onclick="navegarPara('home')">← Voltar para o Início</button>
+      <h2 class="title">Conheça a Estética Keli Kuhn</h2>
+    </section>
+    <section id="servicos" class="section">
+      <h2 class="title">Serviços</h2>
+      <div class="cards-container">
+      <div class="texto-informativo">
+        <h3>Conheça nossos serviços</h3>
+      </div>
+      <div class="texto-informativo">
+        <h3>Conheça nossas profissionais</h3>
+      </div>
+    </section>
+
+    <section id="equipe" class="section bg-light">
+      <h2 class="title">Profissionais</h2>
+      <div id="cards-equipe-container" class="cards-container">
+        <div class="card">
+          <div class="avatar"></div>
+          <h3>Amanda Rauber</h3>
+          <p class="specialty">Especialidade: Esteticista</p>
+        </div>
+        <div class="card">
+          <div class="avatar"></div>
+          <h3>Keli Kuhn</h3>
+          <p class="specialty">Especialidade: Cabeleireira &amp; Maquiadora</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <button class="btn-primary btn-services-booking" onclick="navegarPara('agendamento')">Agendar Horário</button>
+    </section>
+  </div>
+
+  
+  <div id="page-agendamento" class="page-view">
+    <section id="agendamento" class="section">
+      <button class="btn-back" onclick="navegarPara('home')">← Voltar para o Início</button>
+      <h2 class="title">Agende seu Horário</h2>
+
+      <form class="form-agendamento" onsubmit="confirmarAgendamentoCliente(event)">
+
+        <h3>Dados Pessoais</h3>
+
+        
+        <div class="aviso-cliente"></div>
+
+        <div class="form-group">
+          <label for="ag-nome">*Nome Completo</label>
+          <input type="text" id="ag-nome" placeholder="*Digite seu nome completo" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ag-cpf">*CPF</label>
+            <input type="text" id="ag-cpf" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" required>
+          </div>
+          <div class="form-group">
+            <label for="ag-nascimento">*Data de nascimento</label>
+            <input type="date" id="ag-nascimento" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ag-telefone">*Telefone / WhatsApp</label>
+            <input type="tel" id="ag-telefone" placeholder="(00) 00000-0000" required>
+          </div>
+          <div class="form-group">
+            <label for="ag-email">*E-mail</label>
+            <input type="email" id="ag-email" placeholder="seuemail@exemplo.com" required>
+          </div>
+        </div>
+
+        <h3>Atendimento</h3>
+        <div class="form-group">
+          <label for="ag-servico">*Serviço Desejado</label>
+          <select id="ag-servico" required disabled>
+            <option value="" selected>Selecione primeiro uma profissional...</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="ag-profissional">*Profissional de Preferência</label>
+          <select id="ag-profissional" onchange="atualizarServicosAgendamento(); atualizarOpcoesDatasAgendamento()" required>
+            <option value="" disabled hidden selected>Selecione uma profissional...</option>
+            <option value="keli">Keli Kuhn (Cabeleireira &amp; Maquiadora)</option>
+            <option value="amanda">Amanda Rauber (Esteticista)</option>
+          </select>
+        </div>
+
+        <h3>Data e Horário</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ag-data">*Data Disponível</label>
+            <select id="ag-data" onchange="atualizarOpcoesHorariosAgendamento()" required>
+              <option value="" disabled hidden selected>Selecione primeiro a profissional...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ag-hora">*Horário Disponível</label>
+            <select id="ag-hora" required>
+              <option value="" disabled hidden selected>Selecione a data...</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ag-obs">Observações (opcional)</label>
+          <textarea id="ag-obs" rows="3" placeholder="Informações adicionais ou preferências..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary btn-block">Confirmar Horário</button>
+
+        <div class="contato-aviso">
+          <strong>Dúvidas sobre os serviços?</strong>
+          <span>Entre em contato pelo WhatsApp para mais informações.</span>
+        </div>
+        <div class="contato-aviso">
+          <span>Telefone para contato: +55 54 9234-9393.</span>
+        </div>
+
+      </form>
+    </section>
+  </div>
+
+  
+  <div id="page-produtos-pagina" class="page-view">
+    <section class="section bg-light">
+      <button class="btn-back" onclick="navegarPara('home')">← Voltar para o Início</button>
+      <h2 class="title">Produtos</h2>
+      <p style="margin-bottom: 30px; color: #666;">Confira nossa linha completa de cuidados e cosméticos de alta performance.</p>
+
+      <div id="vitrine-produtos-completa" class="cards-container"></div>
+    </section>
+  </div>
+
+  
+  <div id="page-cadastro" class="page-view">
+    <section class="section bg-light" style="min-height: 80vh;">
+      <button class="btn-back" onclick="navegarPara('home')">← Voltar para o Início</button>
+      <h2 class="title">Faça seu Cadastro</h2>
+
+      <form class="form-cadastro" onsubmit="realizarCadastroCliente(event)">
+        <h3>Informações de Acesso e Contato</h3>
+
+        <div class="form-group">
+          <label for="cad-nome">*Nome Completo</label>
+          <input type="text" id="cad-nome" placeholder="Digite seu nome completo" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cad-telefone">*Telefone / WhatsApp</label>
+            <input type="tel" id="cad-telefone" placeholder="(00) 00000-0000" required>
+          </div>
+          <div class="form-group">
+            <label for="cad-email">*E-mail</label>
+            <input type="email" id="cad-email" placeholder="seuemail@exemplo.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cad-cpf">*CPF</label>
+            <input type="text" id="cad-cpf" placeholder="000.000.000-00" required>
+          </div>
+          <div class="form-group">
+            <label for="cad-nascimento">*Data de Nascimento</label>
+            <input type="date" id="cad-nascimento" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary btn-block" style="margin-top: 15px;">Concluir Cadastro</button>
+      </form>
+    </section>
+  </div>
+
+  
+  <div id="page-carrinho" class="page-view">
+    <section class="section bg-light" style="min-height: 80vh;">
+      <button class="btn-back" onclick="navegarPara('produtos-pagina')">← Voltar para a Loja</button>
+      <h2 class="title">Carrinho de Compras</h2>
+
+      <form class="form-agendamento" onsubmit="finalizarCompra(event)">
+
+        <h3>Resumo do Pedido</h3>
+        <div class="form-group" style="background: #fafafa; padding: 15px; border-radius: 8px; border: 1px solid #eee;">
+          <div id="cart-items-list">
+            <p style="color: #777; font-size: 0.95rem; margin-bottom: 8px;">Nenhum produto selecionado no momento.</p>
+          </div>
+          <hr style="border: 0; border-top: 1px dashed #ddd; margin: 10px 0;">
+          <p style="display: flex; justify-content: space-between; font-size: 1.1rem; color: var(--dark-pink);">
+            <strong>Valor Total:</strong>
+            <strong id="cart-total-value" style="color: var(--gold);">R$ 0,00</strong>
+          </p>
+        </div>
+
+        <h3>Dados da Compra</h3>
+
+        
+        <div class="aviso-cliente"></div>
+
+        <div class="form-group">
+          <label for="car-nome">*Nome Completo</label>
+          <input type="text" id="car-nome" placeholder="Digite seu nome completo" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="car-telefone">*Telefone / WhatsApp</label>
+            <input type="tel" id="car-telefone" placeholder="(00) 00000-0000" required>
+          </div>
+          <div class="form-group">
+            <label for="car-cpf">*CPF</label>
+            <input type="text" id="car-cpf" placeholder="000.000.000-00" required>
+          </div>
+        </div>
+
+        <h3>Pagamento</h3>
+        <div class="form-group">
+          <label for="car-pagamento">Método de Pagamento</label>
+          <select id="car-pagamento" required>
+            <option value="" disabled hidden selected>Selecione a forma de pagamento...</option>
+            <option value="pix">PIX</option>
+            <option value="cartao_credito">Cartão de Crédito</option>
+            <option value="cartao_debito">Cartão de Débito</option>
+            <option value="dinheiro">Dinheiro (na retirada)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-primary btn-block" style="margin-top: 10px;">Finalizar Pedido</button>
+
+        <div class="retirada-box">
+          <strong>Importante:</strong>
+          <span>Retirada de produtos <u>somente no local</u>!</span>
+        </div>
+
+      </form>
+    </section>
+  </div>
+
+  
+  <div id="page-funcionaria" class="page-view">
+    <section class="section bg-light" style="min-height: 80vh;">
+      <button class="btn-back" onclick="navegarPara('home')">← Voltar para o Site</button>
+      <h2 class="title">Administradores</h2>
+
+<div id="staff-login-container">
+        <form class="form-login-staff" id="formStaffLogin" onsubmit="autenticarFuncionaria(event)">
+          <h3>Acesso ao Sistema</h3>
+
+          <div class="form-group">
+            <label for="staff-user">*Selecione a Profissional</label>
+            <select id="staff-user" required>
+              <option value="" disabled hidden selected>Selecione quem você é...</option>
+              <option value="keli">Keli Kuhn (Cabeleireira &amp; Maquiadora)</option>
+              <option value="amanda">Amanda Rauber (Esteticista)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="staff-pass">*Senha de Acesso</label>
+            <div style="display:flex;gap:8px;align-items:center">
+              <input type="password" id="staff-pass" placeholder="Digite sua senha" required style="flex:1">
+              <button type="button" class="btn-cancel" onclick="alternarVisibilidadeSenhaLogin()" aria-label="Mostrar ou ocultar senha">Mostrar</button>
+            </div>
+            <span id="login-error" class="error-msg">Senha incorreta. Tente novamente!</span>
+          </div>
+
+          <button type="submit" class="btn-primary btn-block">Entrar no Painel</button>
+        </form>
+      </div>
+
+      <div id="staff-dashboard" class="dashboard-staff">
+
+        <div class="staff-header">
+          <div>
+            <h3 id="welcome-message">Bem-vinda!</h3>
+            <p id="role-description" style="color: #666; font-size: 0.9rem;">Especialidade</p>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+            <button id="btn-abrir-modal-funcionaria" class="btn-gold" style="display:none" onclick="abrirModalNovaFuncionaria()">+ Nova Funcionária</button>
+            <button onclick="logoutFuncionaria()" class="btn-danger">Sair do Sistema</button>
+          </div>
+        </div>
+
+
+  
+  <div id="modalNovaFuncionaria" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="fecharModalNovaFuncionaria()">&times;</span>
+      <h3 id="titulo-modal-funcionaria" style="color: var(--dark-pink); margin-bottom: 15px;">Cadastrar Nova Funcionária</h3>
+      <form id="formCadastrarFuncionaria" onsubmit="salvarFuncionaria(event)">
+        <input type="hidden" id="new-staff-editando" value="">
+        <div class="form-group"><label for="new-staff-user">*Usuário de acesso</label><input type="text" id="new-staff-user" placeholder="ex: maria (sem espaços)" required></div>
+        <div class="form-group"><label for="new-staff-nome">*Nome completo</label><input type="text" id="new-staff-nome" placeholder="Nome da funcionária" required></div>
+        <div class="form-group"><label for="new-staff-cpf">*CPF</label><input type="text" id="new-staff-cpf" placeholder="000.000.000-00" maxlength="14" required></div>
+        <div class="form-group"><label for="new-staff-funcao">*Especialidades</label><input type="text" id="new-staff-funcao" placeholder="Ex: Manicure, pedicure e alongamento" required></div>
+        <div class="form-group"><label for="new-staff-emoji">Emoji da profissional</label><input type="text" id="new-staff-emoji" placeholder="Ex: 💅" maxlength="8" value="👩‍💼"></div>
+        <div class="form-group"><label for="new-staff-pass">*Senha de acesso</label><input type="password" id="new-staff-pass" placeholder="Crie uma senha"><small id="dica-senha-funcionaria">Obrigatória para novos cadastros.</small></div>
+        <button type="submit" id="btn-salvar-funcionaria" class="btn-primary btn-block">Cadastrar Funcionária</button>
+      </form>
+    </div>
+  </div>
+
+
+        <div class="staff-tabs">
+          <button type="button" class="staff-tab-button active"
+                  onclick="abrirAbaStaff('geral', this)">Painel geral</button>
+          <button type="button" class="staff-tab-button"
+                  onclick="abrirAbaStaff('clientes', this)">Clientes</button>
+          <button type="button" class="staff-tab-button"
+                  onclick="abrirAbaStaff('agendamentos', this)">Agendamentos</button>
+          <button type="button" id="staff-tab-btn-vendas" class="staff-tab-button"
+                  onclick="abrirAbaStaff('vendas', this)">Vendas</button>
+          <button type="button" id="staff-tab-btn-produtos" class="staff-tab-button"
+                  onclick="abrirAbaStaff('produtos', this)">Produtos</button>
+          <button type="button" id="staff-tab-btn-relatorios" class="staff-tab-button"
+                  onclick="abrirAbaStaff('relatorios', this)">Relatórios</button>
+          <button type="button" id="staff-tab-btn-funcionarias" class="staff-tab-button"
+                  onclick="abrirAbaStaff('funcionarias', this)" style="display:none">Funcionárias</button>
+        </div>
+
+        <div id="staff-tab-funcionarias" class="staff-tab-content">
+          <div id="painel-gerenciar-funcionarias" class="panel-box">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-bottom:15px;">
+              <h4 style="margin:0;">Gerenciar Funcionárias</h4>
+              <button type="button" class="btn-gold" onclick="abrirModalNovaFuncionaria()">+ Nova Funcionária</button>
+            </div>
+            <div style="overflow-x:auto;"><table class="table-custom">
+              <thead><tr><th>Emoji</th><th>Nome</th><th>CPF</th><th>Especialidades</th><th>Usuário</th><th>Ações</th></tr></thead>
+              <tbody id="staff-funcionarias-list"></tbody>
+            </table></div>
+          </div>
+        </div>
+
+        <div id="staff-tab-geral" class="staff-tab-content active">
+        <div class="panel-box" style="margin-bottom:25px">
+          <h4>Meus Serviços</h4>
+          <form id="formServicoProfissional" onsubmit="cadastrarServicoProfissional(event)">
+            <div class="form-row">
+              <div class="form-group"><label for="servico-nome">Nome do serviço</label><input id="servico-nome" required maxlength="120" placeholder="Ex.: Corte feminino"></div>
+              <div class="form-group"><label for="servico-preco">Preço (R$)</label><input id="servico-preco" type="number" min="0" step="0.01" required></div>
+              <div class="form-group"><label for="servico-duracao">Duração (minutos)</label><input id="servico-duracao" type="number" min="1" value="60" required></div>
+            </div>
+            <div class="form-group"><label for="servico-descricao">Descrição (opcional)</label><textarea id="servico-descricao" rows="2"></textarea></div>
+            <button class="btn-gold" type="submit">Cadastrar serviço</button>
+          </form>
+          <div id="lista-meus-servicos" style="margin-top:18px"></div>
+        </div>
+
+
+        </div>
+
+        <div id="staff-tab-produtos" class="staff-tab-content">
+        <div class="staff-grid">
+
+          <div class="panel-box">
+            <h4 id="form-produto-title">Adicionar Novo Produto</h4>
+            <form id="formAddProduto" onsubmit="salvarProduto(event)">
+              <input type="hidden" id="prod-id" value="">
+
+              <div class="form-group">
+                <label for="prod-nome">Nome do Produto</label>
+                <input type="text" id="prod-nome" placeholder="Ex: Kit Nutrição" required>
+              </div>
+
+              <div class="form-group">
+                <label for="prod-preco">Preço (R$)</label>
+                <input type="number" step="0.01" min="0" id="prod-preco" placeholder="Ex: 85.00" required>
+              </div>
+
+              <div class="form-group">
+                <label for="prod-descricao">Descrição</label>
+                <textarea id="prod-descricao" rows="4" placeholder="Digite a descrição do produto..." required></textarea>
+              </div>
+              <div class="form-row">
+                <div class="form-group"><label for="prod-estoque">Quantidade em estoque</label><input type="number" min="0" step="1" id="prod-estoque" value="0" required></div>
+                <div class="form-group"><label for="prod-imagem">Imagem (URL)</label><input type="url" id="prod-imagem" placeholder="https://..." /></div>
+              </div>
+              <div class="form-group"><label><input type="checkbox" id="prod-disponivel" checked> Produto disponível para venda</label></div>
+
+              <div style="display: flex; gap: 10px;">
+                <button type="submit" id="btn-save-prod" class="btn-primary" style="padding: 8px 15px; font-size: 0.9rem;">Salvar Produto</button>
+                <button type="button" id="btn-cancel-prod" class="btn-cancel" onclick="cancelarEdicaoProduto()">Cancelar</button>
+              </div>
+            </form>
+
+            <h5 style="margin-top: 25px; margin-bottom: 10px; color: var(--dark-pink);">Produtos Cadastrados</h5>
+            <div style="overflow-x: auto;">
+              <table class="table-custom">
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th>Disponível</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="staff-produtos-list"></tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+        </div>
+
+
+        </div>
+
+        <div id="staff-tab-vendas" class="staff-tab-content">
+        <div class="staff-grid">
+
+          
+
+          <div class="panel-box">
+            <h4 id="form-venda-title">Cadastrar Venda</h4>
+            <form id="formAddVenda" onsubmit="salvarVenda(event)">
+              <input type="hidden" id="venda-id" value="">
+
+              <div class="form-group">
+                <label for="venda-cpf">CPF do Cliente</label>
+                <input type="text" id="venda-cpf" placeholder="000.000.000-00" maxlength="14" required>
+              </div>
+
+              <div class="form-group">
+                <label for="venda-data">Data da Venda</label>
+                <input type="date" id="venda-data" required>
+              </div>
+
+              <div class="form-group">
+                <label for="venda-pagamento">Método de Pagamento</label>
+                <select id="venda-pagamento" required>
+                  <option value="" disabled hidden selected>Selecione...</option>
+                  <option value="pix">PIX</option>
+                  <option value="cartao_credito">Cartão de Crédito</option>
+                  <option value="cartao_debito">Cartão de Débito</option>
+                  <option value="dinheiro">Dinheiro</option>
+                </select>
+              </div>
+
+              <div id="venda-item-fields">
+                <div class="form-group">
+                  <label for="venda-produto">Produto</label>
+                  <select id="venda-produto">
+                    <option value="" disabled hidden selected>Selecione o produto...</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="venda-quantidade">Quantidade</label>
+                  <input type="number" id="venda-quantidade" min="1" value="1">
+                </div>
+
+                <button type="button" class="btn-gold" onclick="adicionarItemRascunhoVenda()" style="padding: 8px 15px; font-size: 0.9rem;">Adicionar produto à venda</button>
+                <div id="venda-itens-rascunho" style="margin-top: 12px;"></div>
+                <p style="margin-top: 10px;"><strong>Total estimado: <span id="venda-total-rascunho">R$ 0,00</span></strong></p>
+              </div>
+
+              <div style="display: flex; gap: 10px;">
+                <button type="submit" id="btn-save-venda" class="btn-primary" style="padding: 8px 15px; font-size: 0.9rem;">Salvar Venda</button>
+                <button type="button" id="btn-cancel-venda" class="btn-cancel" onclick="cancelarEdicaoVenda()">Cancelar</button>
+              </div>
+            </form>
+
+            <div class="filtros-clientes" style="margin-top:25px;">
+              <h5>Pesquisar e filtrar vendas</h5>
+              <div class="form-group"><label for="filtro-venda-texto">Pesquisa por cliente, CPF, produto ou pagamento</label>
+                <input type="search" id="filtro-venda-texto" placeholder="Digite cliente, CPF, produto ou pagamento..." oninput="filtrarVendasStaff()"></div>
+              <div class="form-row">
+                <div class="form-group"><label for="filtro-venda-data-inicio">Venda a partir de</label><input type="date" id="filtro-venda-data-inicio" onchange="filtrarVendasStaff()"></div>
+                <div class="form-group"><label for="filtro-venda-data-fim">Venda até</label><input type="date" id="filtro-venda-data-fim" onchange="filtrarVendasStaff()"></div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+                <button type="button" class="btn-gold" onclick="limparFiltrosVendas()" style="padding:8px 16px;">Limpar filtros</button>
+                <span id="vendas-resultado-contagem" class="empty-msg" style="padding:0;">Carregando vendas...</span>
+              </div>
+            </div>
+            <h5 style="margin-top: 25px; margin-bottom: 10px; color: var(--dark-pink);">Vendas Cadastradas</h5>
+            <div style="overflow-x: auto;">
+              <table class="table-custom">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Data</th>
+                    <th>Pagamento</th>
+                    <th>Valor</th>
+                    <th>Produtos</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="staff-vendas-list"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel-box" style="margin-bottom: 25px;">
+            <h4>Gerenciar Itens da Venda</h4>
+            <form id="formItemVenda" onsubmit="salvarItemVenda(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="item-venda-id">Venda</label>
+                  <select id="item-venda-id" required>
+                    <option value="" disabled hidden selected>Selecione a venda...</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="item-produto-id">Produto</label>
+                  <select id="item-produto-id" required>
+                    <option value="" disabled hidden selected>Selecione o produto...</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="item-quantidade">Quantidade</label>
+                  <input type="number" id="item-quantidade" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                  <label for="item-valor-unitario">Valor unitário (R$)</label>
+                  <input type="number" id="item-valor-unitario" min="0" step="0.01" required>
+                </div>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <button type="submit" id="btn-save-item-venda" class="btn-primary" style="padding: 8px 15px; font-size: 0.9rem;">Adicionar item</button>
+                <button type="button" id="btn-cancel-item-venda" class="btn-cancel" onclick="cancelarEdicaoItemVenda()">Cancelar</button>
+              </div>
+            </form>
+            <h5 style="margin-top: 25px; margin-bottom: 10px; color: var(--dark-pink);">Itens vinculados às vendas</h5>
+            <div style="overflow-x: auto;">
+              <table class="table-custom">
+                <thead>
+                  <tr>
+                    <th>Venda</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Valor unitário</th>
+                    <th>Total do item</th>
+                    <th>Retirada</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="staff-itens-venda-list"></tbody>
+              </table>
+            </div>
+          </div>
+
+
+
+        </div>
+        </div>
+
+        <div id="staff-tab-agendamentos" class="staff-tab-content">
+          <div class="panel-box">
+            <h4>Gerenciar Agendamentos</h4>
+            <div class="form-group" style="max-width:520px;margin:14px 0">
+              <label for="pesquisa-agendamentos">Pesquisar agendamentos</label>
+              <input type="search" id="pesquisa-agendamentos" placeholder="Buscar por cliente, telefone, serviço, data ou horário..." oninput="filtrarAgendamentosGerenciaveis()">
+            </div>
+            <p id="resultado-pesquisa-agendamentos" style="font-size:.88rem;color:#777;margin:0 0 10px"></p>
+            <div style="overflow-x:auto">
+              <table class="table-custom">
+                <thead><tr><th>Data</th><th>Hora</th><th>Cliente</th><th>Telefone</th><th>Serviço</th><th>Observações</th><th>Ações</th></tr></thead>
+                <tbody id="staff-gerenciar-agendamentos-list"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="panel-box" id="editar-agendamento-box" style="display:none;margin-top:20px">
+            <h4>Editar Agendamento</h4>
+            <form onsubmit="salvarEdicaoAgendamento(event)">
+              <input type="hidden" id="editar-agendamento-id">
+              <div class="form-row">
+                <div class="form-group"><label for="editar-agendamento-data">Data</label><input type="date" id="editar-agendamento-data" required></div>
+                <div class="form-group"><label for="editar-agendamento-hora">Horário</label><input type="time" id="editar-agendamento-hora" step="1800" required></div>
+              </div>
+              <div class="form-group"><label for="editar-agendamento-servico">Serviço</label><select id="editar-agendamento-servico" required></select></div>
+              <div class="form-group"><label for="editar-agendamento-obs">Observações</label><textarea id="editar-agendamento-obs" rows="2"></textarea></div>
+              <button class="btn-gold" type="submit">Salvar alterações</button>
+              <button class="btn-secondary" type="button" onclick="document.getElementById('editar-agendamento-box').style.display='none'">Cancelar</button>
+            </form>
+          </div>
+        <div class="panel-box" style="margin-bottom: 25px;">
+          <h4>Configurar agenda padrão</h4>
+          <form id="formGerarAgenda" onsubmit="gerarAgendaPadrao(event)">
+            <div class="form-row">
+              <div class="form-group"><label for="agenda-data-inicio">Data inicial</label><input type="date" id="agenda-data-inicio" required></div>
+              <div class="form-group"><label for="agenda-data-fim">Data final</label><input type="date" id="agenda-data-fim" required></div>
+            </div>
+            <button type="submit" class="btn-gold">Gerar horários de 30 em 30 minutos</button>
+          </form>
+
+          <h4 id="form-horario-title" style="margin-top:24px">Adicionar ou editar horário</h4>
+          <form id="formAddHorario" onsubmit="salvarHorarioDisponivel(event)">
+            <input type="hidden" id="horario-id" value="">
+            <div class="form-row">
+              <div class="form-group"><label for="slot-data">Data</label><input type="date" id="slot-data" required></div>
+              <div class="form-group"><label for="slot-hora">Horário</label><input type="time" id="slot-hora" step="1800" min="07:30" max="17:30" required></div>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button type="submit" id="btn-save-horario" class="btn-gold" style="padding:10px 20px;font-size:.9rem">Disponibilizar horário</button>
+              <button type="button" id="btn-cancel-horario" class="btn-cancel" onclick="cancelarEdicaoHorario()" style="display:none">Cancelar edição</button>
+            </div>
+          </form>
+
+          <div style="display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:25px;margin-bottom:10px">
+            <h5 style="margin:0;color:var(--dark-pink)">Meus horários cadastrados</h5>
+            <button type="button" class="btn-danger" onclick="excluirTodosHorarios()">Excluir todos os horários</button>
+          </div>
+          <p style="font-size:.88rem;color:#777;margin:0 0 12px">Horários com agendamentos confirmados não podem ser liberados nem excluídos.</p>
+
+          <div class="filtros-clientes" style="margin-top:15px">
+            <h5>Pesquisar horários</h5>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pesquisa-horario-data">Data</label>
+                <input type="date" id="pesquisa-horario-data" oninput="renderizarTabelaHorariosStaff()">
+              </div>
+              <div class="form-group">
+                <label for="pesquisa-horario-hora">Horário</label>
+                <input type="time" id="pesquisa-horario-hora" oninput="renderizarTabelaHorariosStaff()">
+              </div>
+              <div class="form-group">
+                <label for="pesquisa-horario-status">Status</label>
+                <select id="pesquisa-horario-status" onchange="renderizarTabelaHorariosStaff()">
+                  <option value="todos">Todos</option>
+                  <option value="livre">Livres</option>
+                  <option value="ocupado">Ocupados</option>
+                </select>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+              <button type="button" class="btn-cancel" style="display:inline-block" onclick="limparPesquisaHorarios()">Limpar pesquisa</button>
+              <span id="horarios-resultado-contagem" style="font-size:.88rem;color:#777" aria-live="polite"></span>
+            </div>
+          </div>
+          <div style="overflow-x: auto;">
+            <table class="table-custom">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Horário</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="staff-horarios-list"></tbody>
+            </table>
+          </div>
+        </div>
+
+        </div>
+
+        <div id="staff-tab-clientes" class="staff-tab-content">
+          <div class="panel-box">
+            <h4 id="form-cliente-title">Cadastrar Cliente</h4>
+            <form id="formAddCliente" onsubmit="salvarCliente(event)">
+              <input type="hidden" id="cliente-cpf-original" value="">
+
+              <div class="form-group">
+                <label for="cliente-cpf">CPF</label>
+                <input type="text" id="cliente-cpf" placeholder="000.000.000-00" maxlength="14" required>
+              </div>
+
+              <div class="form-group">
+                <label for="cliente-nome">Nome</label>
+                <input type="text" id="cliente-nome" required>
+              </div>
+
+              <div class="form-group">
+                <label for="cliente-telefone">Telefone</label>
+                <input type="text" id="cliente-telefone" placeholder="(00) 00000-0000" required>
+              </div>
+
+              <div class="form-group">
+                <label for="cliente-email">E-mail</label>
+                <input type="email" id="cliente-email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="cliente-nascimento">Data de Nascimento</label>
+                <input type="date" id="cliente-nascimento" required>
+              </div>
+
+              <div style="display: flex; gap: 10px;">
+                <button type="submit" id="btn-save-cliente" class="btn-primary" style="padding: 8px 15px; font-size: 0.9rem;">Salvar Cliente</button>
+                <button type="button" id="btn-cancel-cliente" class="btn-cancel" onclick="cancelarEdicaoCliente()">Cancelar</button>
+              </div>
+            </form>
+
+            
+            <div class="filtros-clientes">
+              <h5>Pesquisar e filtrar clientes</h5>
+              <div class="form-group">
+                <label for="filtro-cliente-texto">Pesquisa por nome, CPF, telefone ou e-mail</label>
+                <input type="search" id="filtro-cliente-texto"
+                       placeholder="Digite o nome, CPF, telefone ou e-mail..."
+                       oninput="filtrarClientesStaff()">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="filtro-cliente-nascimento-inicio">Nascimento a partir de</label>
+                  <input type="date" id="filtro-cliente-nascimento-inicio"
+                         onchange="filtrarClientesStaff()">
+                </div>
+                <div class="form-group">
+                  <label for="filtro-cliente-nascimento-fim">Nascimento até</label>
+                  <input type="date" id="filtro-cliente-nascimento-fim"
+                         onchange="filtrarClientesStaff()">
+                </div>
+              </div>
+              <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                <button type="button" class="btn-gold" onclick="limparFiltrosClientes()"
+                        style="padding:8px 16px;">Limpar filtros</button>
+                <span id="clientes-resultado-contagem" class="empty-msg"
+                      style="padding:0;">Carregando clientes...</span>
+              </div>
+            </div>
+
+            <h5 style="margin-top: 25px; margin-bottom: 10px; color: var(--dark-pink);">Clientes Cadastrados</h5>
+            <div style="overflow-x: auto;">
+              <table class="table-custom">
+                <thead>
+                  <tr>
+                    <th>CPF</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                    <th>Data de Nascimento</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="staff-clientes-list"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div id="staff-tab-relatorios" class="staff-tab-content">
+          <div class="panel-box">
+            <h4>Relatório de vendas por produto — 2026</h4>
+            <p class="product-desc">Resumo de vendas, unidades e faturamento por produto.</p>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:15px 0;">
+              <button type="button" class="btn-gold" onclick="carregarRelatorioProdutos2026()">Atualizar relatório</button>
+              <span id="relatorio-produtos-status" class="empty-msg">Clique para carregar o relatório.</span>
+            </div>
+            <div style="overflow-x:auto;"><table class="table-custom">
+              <thead><tr><th>ID</th><th>Produto</th><th>Vendas</th><th>Unidades</th><th>Faturamento</th><th>Menor valor</th><th>Maior valor</th></tr></thead>
+              <tbody id="tabela-relatorio-produtos-2026"><tr><td colspan="7" class="empty-msg">Relatório ainda não carregado.</td></tr></tbody>
+            </table></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+
+
+<script>
+const API_BASE = window.location.origin;
+let usuarioLogado = null;
+let senhaSessao = null;
+let clientesCadastrados = [];
+let produtos = [];
+let carrinho = [];
+
+const credenciais = {
+  keli: {
+    senha: "123",
+    nome: "Keli Kuhn",
+    funcao: "Cabeleireira & Maquiadora",
+    agendamentos: [],
+    vendas: [],
+    horarios: [
+      { id: 101, data: "2026-09-22", hora: "09:00", ocupado: false },
+      { id: 102, data: "2026-09-22", hora: "14:00", ocupado: false },
+      { id: 103, data: "2026-09-23", hora: "10:30", ocupado: false }
+    ]
+  },
+  amanda: {
+    senha: "123",
+    nome: "Amanda Rauber",
+    funcao: "Esteticista",
+    agendamentos: [],
+    vendas: [],
+    horarios: [
+      { id: 201, data: "2026-09-22", hora: "08:00", ocupado: false },
+      { id: 202, data: "2026-09-22", hora: "11:00", ocupado: false },
+      { id: 203, data: "2026-09-24", hora: "15:00", ocupado: false }
+    ]
+  }
+};
+
+function formatarDataBR(data) {
+  if (!data) return "";
+  const partes = data.split("-");
+  if (partes.length !== 3) return data;
+  return partes[2] + "/" + partes[1] + "/" + partes[0];
+}
+
+function atualizarSelectProfissionais() {
+  const selectLogin = document.getElementById("staff-user");
+  const selectAgendamento = document.getElementById("ag-profissional");
+  const containerEquipe = document.getElementById("cards-equipe-container");
+  if (selectLogin) {
+    const valAtual = selectLogin.value;
+    selectLogin.innerHTML = '<option value="">Selecione quem você é...</option>';
+    Object.keys(credenciais).forEach(key => {
+      const c = credenciais[key], option = document.createElement("option");
+      option.value = key;
+      option.textContent = (c.emoji || "👩‍💼") + " " + c.nome + " (" + c.funcao + ")";
+      selectLogin.appendChild(option);
+    });
+    selectLogin.value = valAtual;
+  }
+  if (selectAgendamento) {
+    const valAtual = selectAgendamento.value;
+    selectAgendamento.innerHTML = '<option value="">Selecione uma profissional...</option>';
+    Object.keys(credenciais).forEach(key => {
+      const c = credenciais[key], option = document.createElement("option");
+      option.value = key;
+      option.textContent = (c.emoji || "👩‍💼") + " " + c.nome + " (" + c.funcao + ")";
+      selectAgendamento.appendChild(option);
+    });
+    selectAgendamento.value = valAtual;
+  }
+  if (containerEquipe) {
+    containerEquipe.innerHTML = "";
+    Object.keys(credenciais).forEach(key => {
+      const c = credenciais[key], card = document.createElement("div");
+      card.className = "card";
+      const avatar = document.createElement("div");
+      avatar.className = "avatar"; avatar.textContent = c.emoji || "👩‍💼";
+      const nome = document.createElement("h3"); nome.textContent = c.nome;
+      const especialidade = document.createElement("p");
+      especialidade.className = "specialty";
+      especialidade.textContent = "Especialidades: " + c.funcao;
+      card.append(avatar, nome, especialidade);
+      containerEquipe.appendChild(card);
+    });
+  }
+}
+
+function abrirModalNovaFuncionaria() {
+  if (usuarioLogado !== "keli") { alert("Apenas a Keli pode gerenciar funcionárias."); return; }
+  document.getElementById("titulo-modal-funcionaria").textContent = "Cadastrar Nova Funcionária";
+  document.getElementById("btn-salvar-funcionaria").textContent = "Cadastrar Funcionária";
+  document.getElementById("new-staff-editando").value = "";
+  document.getElementById("formCadastrarFuncionaria").reset();
+  document.getElementById("new-staff-user").disabled = false;
+  document.getElementById("new-staff-emoji").value = "👩‍💼";
+  document.getElementById("new-staff-pass").required = true;
+  document.getElementById("dica-senha-funcionaria").textContent = "Obrigatória para novos cadastros.";
+  document.getElementById("modalNovaFuncionaria").style.display = "flex";
+}
+
+function fecharModalNovaFuncionaria() {
+  document.getElementById("modalNovaFuncionaria").style.display = "none";
+  document.getElementById("formCadastrarFuncionaria").reset();
+}
+
+async function cadastrarNovaFuncionaria(event) {
+  event.preventDefault();
+  if (usuarioLogado !== "keli") {
+    alert("Apenas a Keli tem permissão para adicionar novas funcionárias.");
+    return;
+  }
+
+  const userKey = document.getElementById("new-staff-user").value.trim().toLowerCase().replace(/\s+/g, "");
+  const nome = document.getElementById("new-staff-nome").value.trim();
+  const funcao = document.getElementById("new-staff-funcao").value.trim();
+  const senha = document.getElementById("new-staff-pass").value;
+
+  if (credenciais[userKey]) {
+    alert("Já existe uma funcionária cadastrada com esse usuário.");
+    return;
+  }
+
+  try {
+    await fetch(API_BASE + "/funcionarias", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ usuario_login: usuarioLogado, usuario: userKey, nome: nome, funcao: funcao, senha: senha })
+    });
+  } catch (e) {}
+
+  credenciais[userKey] = {
+    senha: senha,
+    nome: nome,
+    funcao: funcao,
+    agendamentos: [],
+    vendas: [],
+    horarios: []
+  };
+
+  alert("Funcionária " + nome + " cadastrada com sucesso!");
+  fecharModalNovaFuncionaria();
+  atualizarSelectProfissionais();
+}
+
+async function carregarFuncionariasBackend() {
+  try {
+    const resp = await fetch(API_BASE + "/funcionarias");
+    const lista = await resp.json();
+    if (!resp.ok || !Array.isArray(lista)) throw new Error(lista.erro || "Falha ao consultar funcionárias.");
+    lista.forEach(f => {
+      if (!f.usuario || !f.nome) return;
+      if (!credenciais[f.usuario]) credenciais[f.usuario] = { agendamentos: [], vendas: [], horarios: [], senha: null };
+      Object.assign(credenciais[f.usuario], {
+        nome: f.nome, funcao: f.funcao || "", cpf: f.cpf || "",
+        emoji: f.emoji || "👩‍💼"
+      });
+    });
+    atualizarSelectProfissionais();
+    if (usuarioLogado === "keli") renderizarTabelaFuncionarias();
+  } catch (erro) { console.error("Erro ao carregar funcionárias:", erro); }
+}
+
+function editarFuncionaria(usuario) {
+  if (usuarioLogado !== "keli") return;
+  const f = credenciais[usuario];
+  if (!f || usuario === "keli" || usuario === "amanda") return;
+  document.getElementById("titulo-modal-funcionaria").textContent = "Alterar Funcionária";
+  document.getElementById("btn-salvar-funcionaria").textContent = "Salvar Alterações";
+  document.getElementById("new-staff-editando").value = usuario;
+  document.getElementById("new-staff-user").value = usuario;
+  document.getElementById("new-staff-user").disabled = true;
+  document.getElementById("new-staff-nome").value = f.nome || "";
+  document.getElementById("new-staff-cpf").value = f.cpf || "";
+  document.getElementById("new-staff-funcao").value = f.funcao || "";
+  document.getElementById("new-staff-emoji").value = f.emoji || "👩‍💼";
+  document.getElementById("new-staff-pass").value = "";
+  document.getElementById("new-staff-pass").required = false;
+  document.getElementById("dica-senha-funcionaria").textContent = "Deixe em branco para manter a senha atual.";
+  document.getElementById("modalNovaFuncionaria").style.display = "flex";
+}
+
+async function salvarFuncionaria(event) {
+  event.preventDefault();
+  if (usuarioLogado !== "keli") { alert("Apenas a Keli pode gerenciar funcionárias."); return; }
+  const editando = document.getElementById("new-staff-editando").value;
+  const usuario = document.getElementById("new-staff-user").value.trim().toLowerCase().replace(/\s+/g, "");
+  const nome = document.getElementById("new-staff-nome").value.trim();
+  const cpf = document.getElementById("new-staff-cpf").value.replace(/\D/g, "");
+  const funcao = document.getElementById("new-staff-funcao").value.trim();
+  const emoji = document.getElementById("new-staff-emoji").value.trim() || "👩‍💼";
+  const senha = document.getElementById("new-staff-pass").value;
+  if (cpf.length !== 11) { alert("Informe um CPF com 11 números."); return; }
+  if (!editando && !senha) { alert("Informe uma senha para a nova funcionária."); return; }
+  const dados = { usuario_login: usuarioLogado, senha_solicitante: senhaSessao, usuario, nome, cpf, funcao, emoji, senha };
+  try {
+    const resp = await fetch(editando
+      ? API_BASE + "/funcionarias/" + encodeURIComponent(editando)
+      : API_BASE + "/funcionarias", {
+      method: editando ? "PUT" : "POST",
+      headers: { "Content-Type": "application/json" }, body: JSON.stringify(dados)
+    });
+    const resultado = await resp.json();
+    if (!resp.ok) throw new Error(resultado.erro || "Não foi possível salvar.");
+    if (!credenciais[usuario]) credenciais[usuario] = { agendamentos: [], vendas: [], horarios: [] };
+    Object.assign(credenciais[usuario], { nome, funcao, cpf, emoji });
+    alert(editando ? "Funcionária alterada com sucesso!" : "Funcionária cadastrada com sucesso!");
+    fecharModalNovaFuncionaria(); atualizarSelectProfissionais(); renderizarTabelaFuncionarias();
+  } catch (erro) { alert("Erro ao salvar funcionária: " + erro.message); }
+}
+
+function renderizarTabelaFuncionarias() {
+  const tbody = document.getElementById("staff-funcionarias-list");
+  if (!tbody || usuarioLogado !== "keli") return;
+  tbody.innerHTML = "";
+  const lista = Object.entries(credenciais).filter(([usuario]) => usuario !== "keli" && usuario !== "amanda");
+  if (!lista.length) {
+    tbody.innerHTML = '<tr><td colspan="6" class="empty-msg">Nenhuma funcionária adicional cadastrada.</td></tr>';
+    return;
+  }
+  lista.forEach(([usuario, f]) => {
+    const tr = document.createElement("tr");
+    [f.emoji || "👩‍💼", f.nome, f.cpf || "-", f.funcao, usuario].forEach(valor => {
+      const td = document.createElement("td"); td.textContent = valor; tr.appendChild(td);
+    });
+    const tdAcoes = document.createElement("td");
+    const btnEditar = document.createElement("button");
+    btnEditar.type = "button"; btnEditar.className = "btn-edit"; btnEditar.textContent = "Alterar";
+    btnEditar.onclick = () => editarFuncionaria(usuario);
+    const btnExcluir = document.createElement("button");
+    btnExcluir.type = "button"; btnExcluir.className = "btn-danger"; btnExcluir.textContent = "Excluir";
+    btnExcluir.onclick = () => excluirFuncionaria(usuario);
+    tdAcoes.append(btnEditar, btnExcluir); tr.appendChild(tdAcoes); tbody.appendChild(tr);
+  });
+}
+
+async function excluirFuncionaria(usuario) {
+  if (usuarioLogado !== "keli") { alert("Apenas a Keli pode excluir funcionárias."); return; }
+  if (!confirm("Deseja realmente excluir " + (credenciais[usuario]?.nome || usuario) + "?")) return;
+  try {
+    const resp = await fetch(API_BASE + "/funcionarias/" + encodeURIComponent(usuario), {
+      method: "DELETE", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ usuario_login: usuarioLogado, senha_solicitante: senhaSessao })
+    });
+    const resultado = await resp.json();
+    if (!resp.ok) throw new Error(resultado.erro || "Não foi possível excluir.");
+    delete credenciais[usuario];
+    atualizarSelectProfissionais(); renderizarTabelaFuncionarias();
+    alert("Funcionária excluída com sucesso.");
+  } catch (erro) { alert("Erro ao excluir funcionária: " + erro.message); }
+}
+
+function navegarPara(pageId, sectionId = null) {
+  document.querySelectorAll(".page-view").forEach(function(pagina) {
+    pagina.classList.remove("active");
+  });
+
+  const pagina = document.getElementById("page-" + pageId);
+
+  if (!pagina) {
+    console.error("Página não encontrada:", pageId);
+    return;
+  }
+
+  pagina.classList.add("active");
+  window.scrollTo(0, 0);
+
+  if (sectionId) {
+    setTimeout(function() {
+      const secao = document.getElementById(sectionId);
+      if (secao) {
+        secao.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  }
+
+  if (pageId === "carrinho") {
+    atualizarCarrinho();
+  }
+
+  if (pageId === "funcionaria" && usuarioLogado) {
+    carregarPainelFuncionaria();
+  }
+
+  if (typeof preencherFormulariosComCliente === "function") {
+    preencherFormulariosComCliente();
+  }
+}
+
+function renderizarVitrineProdutos() {
+  const container = document.getElementById("vitrine-produtos-completa");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  if (!produtos.length) {
+    container.innerHTML =
+      '<p class="empty-msg">Nenhum produto cadastrado no momento.</p>';
+    return;
+  }
+
+  produtos.filter(function(p) { return p.disponivel !== false && Number(p.estoque) > 0; }).forEach(function(produto) {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    const imagem = document.createElement("img");
+    imagem.className = "product-img";
+    imagem.src = produto.img || "https://via.placeholder.com/600x400?text=Produto";
+    imagem.alt = produto.nome;
+
+    const titulo = document.createElement("h3");
+    titulo.textContent = produto.nome;
+
+    const descricao = document.createElement("p");
+    descricao.className = "product-desc";
+    descricao.textContent =
+      produto.desc || produto.descricao || "Produto de alta qualidade.";
+
+    const preco = document.createElement("p");
+    preco.className = "price";
+    preco.textContent =
+      "R$ " + Number(produto.preco).toFixed(2).replace(".", ",");
+    const estoque = document.createElement("p");
+    estoque.className = "product-stock";
+    estoque.textContent = "Disponíveis: " + Number(produto.estoque);
+
+    const botao = document.createElement("button");
+    botao.type = "button";
+    botao.className = "btn-buy";
+    botao.textContent = "Comprar";
+    botao.onclick = function() {
+      adicionarAoCarrinho(produto.id);
+    };
+
+    card.appendChild(imagem);
+    card.appendChild(titulo);
+    card.appendChild(descricao);
+    card.appendChild(preco);
+    card.appendChild(estoque);
+    card.appendChild(botao);
+
+    container.appendChild(card);
+  });
+}
+
+function adicionarAoCarrinho(id) {
+  const produto = produtos.find(function(p) {
+    return Number(p.id) === Number(id);
+  });
+
+  if (!produto || produto.disponivel === false) {
+    alert("Produto indisponível.");
+    return;
+  }
+  const noCarrinho = carrinho.filter(p => Number(p.id) === Number(id)).length;
+  if (noCarrinho >= Number(produto.estoque || 0)) {
+    alert("Quantidade máxima disponível em estoque: " + Number(produto.estoque || 0));
+    return;
+  }
+
+  carrinho.push(produto);
+  atualizarCarrinho();
+  alert('"' + produto.nome + '" foi adicionado ao carrinho!');
+}
+
+function removerDoCarrinho(index) {
+  carrinho.splice(index, 1);
+  atualizarCarrinho();
+}
+
+function atualizarCarrinho() {
+  const contador = document.getElementById("cart-count");
+  const lista = document.getElementById("cart-items-list");
+  const totalElemento = document.getElementById("cart-total-value");
+
+  if (contador) contador.textContent = carrinho.length;
+  if (!lista || !totalElemento) return;
+
+  if (!carrinho.length) {
+    lista.innerHTML =
+      '<p style="color:#777;font-size:.95rem;">Nenhum produto selecionado no momento.</p>';
+    totalElemento.textContent = "R$ 0,00";
+    return;
+  }
+
+  lista.innerHTML = "";
+  let total = 0;
+
+  carrinho.forEach(function(item, index) {
+    total += Number(item.preco);
+
+    const div = document.createElement("div");
+    div.className = "cart-item";
+
+    const texto = document.createElement("div");
+    const nomeEl = document.createElement("strong");
+    nomeEl.textContent = item.nome;
+    const precoEl = document.createElement("small");
+    precoEl.style.color = "var(--gold)";
+    precoEl.textContent = "R$ " + Number(item.preco).toFixed(2).replace(".", ",");
+    texto.appendChild(nomeEl);
+    texto.appendChild(document.createElement("br"));
+    texto.appendChild(precoEl);
+
+    const remover = document.createElement("button");
+    remover.type = "button";
+    remover.className = "btn-danger";
+    remover.textContent = "✕";
+    remover.onclick = function() {
+      removerDoCarrinho(index);
+    };
+
+    div.appendChild(texto);
+    div.appendChild(remover);
+    lista.appendChild(div);
+  });
+
+  totalElemento.textContent =
+    "R$ " + total.toFixed(2).replace(".", ",");
+}
+
+async function finalizarCompra(event) {
+  event.preventDefault();
+
+  if (!carrinho.length) {
+    alert("Seu carrinho está vazio.");
+    return;
+  }
+
+  const cpf = document.getElementById("car-cpf").value.replace(/\D/g, "");
+  const pagamento = document.getElementById("car-pagamento").value;
+ 
+  const nomeCompra = document.getElementById("car-nome").value.trim();
+  const telefoneCompra = document.getElementById("car-telefone").value.replace(/\D/g, "");
+
+  if (cpf.length !== 11) {
+    alert("Informe um CPF válido com 11 dígitos.");
+    return;
+  }
+
+  try {
+    const resposta = await fetch(API_VENDAS, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        cpf_cliente: cpf,
+        data_venda: new Date().toISOString().slice(0, 10),
+        metodo_pagamento: pagamento,
+        itens: Object.values(carrinho.reduce(function(grupo, item) {
+          const id = Number(item.id);
+          if (!grupo[id]) grupo[id] = { id_produto: id, quantidade: 0 };
+          grupo[id].quantidade += 1;
+          return grupo;
+        }, {}))
+      })
+    });
+
+    const dados = await obterJSON(resposta);
+
+    alert(
+      "Compra realizada com sucesso!\n" +
+      "Venda nº " + dados.id_venda +
+      "\nValor: R$ " + Number(dados.valor_total).toFixed(2).replace(".", ",")
+    );
+
+    carrinho = [];
+    atualizarCarrinho();
+
+    const formulario = document.querySelector("#page-carrinho form");
+    if (formulario) formulario.reset();
+
+  
+    salvarClienteLocal({ cpf: cpf, nome: nomeCompra, telefone: telefoneCompra });
+
+    if (typeof carregarVendasBackend === "function") {
+      await carregarVendasBackend();
+    }
+
+    navegarPara("home");
+
+  } catch (erro) {
+    console.error(erro);
+    alert("Erro ao finalizar a compra: " + erro.message);
+  }
+}
+
+async function realizarCadastroCliente(event) {
+  event.preventDefault();
+
+  const nome = document.getElementById("cad-nome").value.trim();
+  const telefone = document.getElementById("cad-telefone").value.replace(/\D/g, "");
+  const email = document.getElementById("cad-email").value.trim();
+  const cpf = document.getElementById("cad-cpf").value.replace(/\D/g, "");
+  const nascimento = document.getElementById("cad-nascimento").value;
+
+  if (cpf.length !== 11) {
+    alert("CPF deve possuir 11 dígitos.");
+    return;
+  }
+
+  try {
+    const resposta = await fetch(API_CLIENTES, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        cpf: cpf,
+        nome: nome,
+        telefone: telefone,
+        email: email,
+        data_nascimento: nascimento
+      })
+    });
+
+    await obterJSON(resposta);
+
+    alert("Cadastro realizado com sucesso, " + nome + "!");
+    document.querySelector(".form-cadastro").reset();
+
+   
+    salvarClienteLocal({
+      cpf: cpf,
+      nome: nome,
+      telefone: telefone,
+      email: email,
+      data_nascimento: nascimento
+    });
+
+    if (typeof carregarClientesBackend === "function") {
+      await carregarClientesBackend();
+    }
+
+    navegarPara("home");
+
+  } catch (erro) {
+    console.error(erro);
+    alert("Erro ao cadastrar cliente: " + erro.message);
+  }
+}
+
+let servicosDisponiveisAgendamento = [];
+
+async function atualizarServicosAgendamento() {
+  const profissional = document.getElementById("ag-profissional").value;
+  const select = document.getElementById("ag-servico");
+  select.innerHTML = '<option value="">Carregando serviços...</option>';
+  select.disabled = true;
+  if (!profissional) {
+    select.innerHTML = '<option value="">Selecione primeiro uma profissional...</option>';
+    return;
+  }
+  try {
+    const resp = await fetch(API_BASE + "/servicos");
+    const lista = await resp.json();
+    if (!resp.ok) throw new Error(lista.erro || "Não foi possível carregar os serviços.");
+    servicosDisponiveisAgendamento = lista.filter(s => s.usuario === profissional);
+    select.innerHTML = '<option value="">Selecione um serviço...</option>';
+    servicosDisponiveisAgendamento.forEach(s => {
+      const opt = document.createElement("option");
+      opt.value = s.id;
+      opt.textContent = `${s.nome} — ${Number(s.preco).toLocaleString("pt-BR", {style:"currency",currency:"BRL"})} · ${s.duracao_minutos} min`;
+      select.appendChild(opt);
+    });
+    select.onchange = atualizarOpcoesHorariosAgendamento;
+    select.disabled = servicosDisponiveisAgendamento.length === 0;
+    if (!servicosDisponiveisAgendamento.length) select.innerHTML = '<option value="">Esta profissional ainda não cadastrou serviços</option>';
+  } catch (e) {
+    select.innerHTML = '<option value="">Erro ao carregar serviços</option>';
+    alert(e.message);
+  }
+}
+
+async function atualizarOpcoesDatasAgendamento() {
+  const profissional = document.getElementById("ag-profissional").value;
+  const data = document.getElementById("ag-data");
+  const hora = document.getElementById("ag-hora");
+  data.innerHTML = '<option value="">Carregando datas...</option>';
+  hora.innerHTML = '<option value="">Selecione a data primeiro...</option>';
+  if (!profissional) return;
+  try {
+    const resp = await fetch(API_BASE + "/horarios?usuario=" + encodeURIComponent(profissional));
+    const lista = await resp.json();
+    if (!resp.ok) throw new Error(lista.erro || "Não foi possível consultar a agenda.");
+    credenciais[profissional].horarios = lista.map(h => ({id:h.id, data:String(h.data).slice(0,10), hora:String(h.hora).slice(0,5), ocupado:false}));
+    data.innerHTML = '<option value="">Selecione a data...</option>';
+    [...new Set(credenciais[profissional].horarios.map(h => h.data))].forEach(d => {
+      const opt = document.createElement("option"); opt.value=d; opt.textContent=formatarDataBR(d); data.appendChild(opt);
+    });
+    if (!lista.length) data.innerHTML = '<option value="">Nenhuma data disponível</option>';
+  } catch (e) {
+    data.innerHTML = '<option value="">Agenda indisponível</option>';
+    console.error(e); alert(e.message);
+  }
+}
+
+function atualizarOpcoesHorariosAgendamento() {
+  const profissional = document.getElementById("ag-profissional").value;
+  const data = document.getElementById("ag-data").value;
+  const hora = document.getElementById("ag-hora");
+  hora.innerHTML = '<option value="">Selecione o horário...</option>';
+  if (!profissional || !data) return;
+  const servicoId = document.getElementById("ag-servico").value;
+  const servico = servicosDisponiveisAgendamento.find(s => String(s.id) === String(servicoId));
+  const blocos = Math.max(1, Math.ceil(Number(servico?.duracao_minutos || 30) / 30));
+  const disponiveis = new Set((credenciais[profissional]?.horarios || []).filter(h => h.data === data).map(h => h.hora));
+  (credenciais[profissional]?.horarios || []).filter(h => h.data === data).forEach(h => {
+    const [hh, mm] = h.hora.split(":").map(Number);
+    const inicio = hh * 60 + mm;
+    let cabe = true;
+    for (let i = 0; i < blocos; i++) {
+      const minuto = inicio + i * 30;
+      const chave = String(Math.floor(minuto / 60)).padStart(2,"0") + ":" + String(minuto % 60).padStart(2,"0");
+      if (!disponiveis.has(chave) || minuto > 17 * 60 + 30) { cabe = false; break; }
+    }
+    if (cabe) { const opt=document.createElement("option"); opt.value=h.hora; opt.textContent=h.hora; hora.appendChild(opt); }
+  });
+  if (hora.options.length === 1) hora.innerHTML = '<option value="">Não há tempo disponível para a duração deste serviço</option>';
+}
+
+async function confirmarAgendamentoCliente(event) {
+  event.preventDefault();
+  const profissional=document.getElementById("ag-profissional").value;
+  const data=document.getElementById("ag-data").value;
+  const hora=document.getElementById("ag-hora").value;
+  const dados={
+    profissional, data, hora,
+    cpf:document.getElementById("ag-cpf").value.replace(/\D/g,""),
+    data_nascimento:document.getElementById("ag-nascimento").value,
+    nome:document.getElementById("ag-nome").value.trim(),
+    telefone:document.getElementById("ag-telefone").value.replace(/\D/g,""),
+    email:document.getElementById("ag-email").value.trim(),
+    id_servico:document.getElementById("ag-servico").value,
+    observacoes:document.getElementById("ag-obs").value
+  };
+  if (!profissional || !data || !hora || dados.cpf.length!==11 || !dados.data_nascimento) { alert("Informe CPF, data de nascimento, profissional, data e horário."); return; }
+  try {
+    const resp=await fetch(API_BASE+"/agendamentos",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(dados)});
+    const resultado=await resp.json();
+    if(!resp.ok) throw new Error(resultado.erro || "Não foi possível confirmar o agendamento.");
+    alert(resultado.mensagem || "Agendamento realizado com sucesso!");
+    event.target.reset();
+    navegarPara("home");
+  } catch(e) { alert("Erro ao agendar: "+e.message); }
+}
+
+function atualizarPermissoesPainel() {
+  const somenteKeli = usuarioLogado === "keli";
+  ["vendas", "produtos", "relatorios", "funcionarias"].forEach(function(aba) {
+    const botao = document.getElementById("staff-tab-btn-" + aba);
+    if (botao) botao.style.display = somenteKeli ? "" : "none";
+  });
+  const ativa = document.querySelector(".staff-tab-content.active");
+  if (!somenteKeli && ativa && ["staff-tab-vendas", "staff-tab-produtos", "staff-tab-relatorios", "staff-tab-funcionarias"].includes(ativa.id)) {
+    abrirAbaStaff("geral", document.querySelector(".staff-tab-button"));
+  }
+}
+
+function alternarVisibilidadeSenhaLogin() {
+  const campo = document.getElementById("staff-pass");
+  const botao = campo?.parentElement?.querySelector("button");
+  if (!campo) return;
+  const mostrar = campo.type === "password";
+  campo.type = mostrar ? "text" : "password";
+  if (botao) botao.textContent = mostrar ? "Ocultar" : "Mostrar";
+}
+
+async function autenticarFuncionaria(event) {
+  event.preventDefault();
+  const usuario = document.getElementById("staff-user").value;
+  const senha = document.getElementById("staff-pass").value;
+  const erro = document.getElementById("login-error");
+  try {
+    const resp = await fetch(API_BASE + "/funcionarias/login", {
+      method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ usuario, senha })
+    });
+    const resultado = await resp.json();
+    if (!resp.ok) throw new Error(resultado.erro || "Senha incorreta. Tente novamente!");
+    senhaSessao = senha; usuarioLogado = usuario;
+    atualizarPermissoesPainel();
+    if (!credenciais[usuario]) credenciais[usuario] = { agendamentos: [], vendas: [], horarios: [] };
+    Object.assign(credenciais[usuario], {
+      nome: resultado.funcionaria.nome, funcao: resultado.funcionaria.funcao || "",
+      cpf: resultado.funcionaria.cpf || "", emoji: resultado.funcionaria.emoji || "👩‍💼"
+    });
+    erro.style.display = "none";
+    document.getElementById("staff-login-container").style.display = "none";
+    document.getElementById("staff-dashboard").style.display = "block";
+    document.getElementById("btn-abrir-modal-funcionaria").style.display = "none";
+    carregarServicosProfissional();
+    carregarPainelFuncionaria();
+  } catch (e) { erro.textContent = e.message; erro.style.display = "block"; }
+}
+
+function logoutFuncionaria() {
+  fetch(API_BASE + "/funcionarias/logout", { method: "POST", credentials: "same-origin" }).catch(function() {});
+  usuarioLogado = null; senhaSessao = null;
+  atualizarPermissoesPainel();
+  document.getElementById("staff-dashboard").style.display = "none";
+  document.getElementById("staff-login-container").style.display = "block";
+  document.getElementById("btn-abrir-modal-funcionaria").style.display = "none";
+  document.getElementById("painel-gerenciar-funcionarias").style.display = "none";
+  document.getElementById("staff-pass").value = "";
+}
+
+async function carregarPainelFuncionaria() {
+  if (!usuarioLogado) return;
+
+  const dados = credenciais[usuarioLogado];
+  try {
+    const [rh, ra] = await Promise.all([
+      fetch(API_BASE + "/horarios?painel=1&usuario=" + encodeURIComponent(usuarioLogado)),
+      fetch(API_BASE + "/agendamentos?usuario=" + encodeURIComponent(usuarioLogado))
+    ]);
+    const horarios = await rh.json(); const ags = await ra.json();
+    if (rh.ok && Array.isArray(horarios)) dados.horarios = horarios.map(h=>({id:h.id,data:String(h.data).slice(0,10),hora:String(h.hora).slice(0,5),ocupado:h.status === "ocupado"}));
+    if (ra.ok && Array.isArray(ags)) dados.agendamentos = ags.map(a=>({dataHora:formatarDataBR(a.data_atendimento)+" às "+String(a.hora).slice(0,5),cliente:a.cliente,telefone:a.telefone,servico:a.servico,obs:a.observacoes||"-"}));
+  } catch(e) { console.error("Falha ao carregar agenda",e); }
+
+  document.getElementById("welcome-message").textContent =
+    "Bem-vinda, " + dados.nome + "!";
+
+  document.getElementById("role-description").textContent =
+    "Painel Restrito - " + dados.funcao;
+
+  if (usuarioLogado === "keli") renderizarTabelaFuncionarias();
+
+  const agendamentos = document.getElementById("agendamentos-list");
+  if (agendamentos) {
+  agendamentos.innerHTML = "";
+
+  if (!dados.agendamentos.length) {
+    agendamentos.innerHTML =
+      '<tr><td colspan="5" class="empty-msg">' +
+      "Nenhum agendamento para você no momento." +
+      "</td></tr>";
+  } else {
+    dados.agendamentos.forEach(function(a) {
+      const tr = document.createElement("tr");
+      [a.dataHora, a.cliente, a.telefone, a.servico, a.obs].forEach(function(valor) {
+        const td = document.createElement("td");
+        td.textContent = valor;
+        tr.appendChild(td);
+      });
+      agendamentos.appendChild(tr);
+    });
+  }
+  }
+
+  renderizarTabelaHorariosStaff();
+  carregarClientesBackend();
+  carregarVendasBackend();
+  renderizarTabelaProdutosStaff();
+}
+
+function renderizarTabelaHorariosStaff() {
+  const tbody = document.getElementById("staff-horarios-list");
+  if (!tbody || !usuarioLogado) return;
+
+  const todosHorarios = [...(credenciais[usuarioLogado]?.horarios || [])]
+    .sort((a, b) => (a.data + a.hora).localeCompare(b.data + b.hora));
+
+  const campoData = document.getElementById("pesquisa-horario-data");
+  const campoHora = document.getElementById("pesquisa-horario-hora");
+  const campoStatus = document.getElementById("pesquisa-horario-status");
+  const dataPesquisa = campoData ? campoData.value : "";
+  const horaPesquisa = campoHora ? campoHora.value : "";
+  const statusPesquisa = campoStatus ? campoStatus.value : "todos";
+
+  const lista = todosHorarios.filter(h => {
+    const correspondeData = !dataPesquisa || h.data === dataPesquisa;
+    const correspondeHora = !horaPesquisa || String(h.hora || "").startsWith(horaPesquisa);
+    const correspondeStatus = statusPesquisa === "todos" ||
+      (statusPesquisa === "ocupado" ? !!h.ocupado : !h.ocupado);
+    return correspondeData && correspondeHora && correspondeStatus;
+  });
+
+  const contador = document.getElementById("horarios-resultado-contagem");
+  if (contador) {
+    contador.textContent = lista.length + (lista.length === 1 ? " horário encontrado" : " horários encontrados") +
+      " de " + todosHorarios.length + " cadastrado(s)";
+  }
+
+  tbody.innerHTML = "";
+  if (!lista.length) {
+    const mensagem = todosHorarios.length
+      ? "Nenhum horário corresponde à pesquisa."
+      : "Nenhum horário cadastrado. Gere a agenda padrão acima.";
+    tbody.innerHTML = '<tr><td colspan="4" class="empty-msg">' + mensagem + '</td></tr>';
+    return;
+  }
+
+  lista.forEach(h => {
+    const tr = document.createElement("tr");
+    const status = h.ocupado
+      ? '<span style="color:#e74c3c;font-weight:600">Ocupado</span>'
+      : '<span style="color:#27ae60;font-weight:600">Livre</span>';
+    tr.innerHTML = '<td>' + formatarDataBR(h.data) + '</td><td>' + h.hora + '</td><td>' + status + '</td>' +
+      '<td style="white-space:nowrap">' +
+      '<button type="button" class="btn-gold" onclick="editarHorario(' + h.id + ')">Editar</button> ' +
+      '<button type="button" class="btn-cancel" onclick="alternarStatusHorario(' + h.id + ',\'' + (h.ocupado ? 'livre' : 'ocupado') + '\')">' + (h.ocupado ? 'Marcar livre' : 'Marcar ocupado') + '</button> ' +
+      '<button type="button" class="btn-danger" onclick="excluirHorario(' + h.id + ')">Excluir</button></td>';
+    tbody.appendChild(tr);
+  });
+}
+
+function limparPesquisaHorarios() {
+  const data = document.getElementById("pesquisa-horario-data");
+  const hora = document.getElementById("pesquisa-horario-hora");
+  const status = document.getElementById("pesquisa-horario-status");
+  if (data) data.value = "";
+  if (hora) hora.value = "";
+  if (status) status.value = "todos";
+  renderizarTabelaHorariosStaff();
+}
+
+async function gerarAgendaPadrao(event) {
+  event.preventDefault();
+  if (!usuarioLogado) return;
+  const data_inicio = document.getElementById("agenda-data-inicio").value;
+  const data_fim = document.getElementById("agenda-data-fim").value;
+  try {
+    const resp = await fetch(API_BASE + "/horarios", {
+      method: "POST",
+      headers: {"Content-Type": "application/json", "Accept": "application/json"},
+      body: JSON.stringify({usuario: usuarioLogado, acao: "gerar_padrao", data_inicio, data_fim})
+    });
+    const texto = await resp.text();
+    let r;
+    try {
+      r = texto ? JSON.parse(texto) : {};
+    } catch (_) {
+      const trecho = texto.replace(/\s+/g, " ").slice(0, 220);
+      throw new Error("O servidor devolveu HTML em vez de JSON (HTTP " + resp.status + "). Verifique se a rota /horarios está publicada. Resposta: " + trecho);
+    }
+    if (!resp.ok) throw new Error(r.erro || "Falha HTTP " + resp.status + " ao gerar a agenda.");
+    await carregarPainelFuncionaria();
+    alert(r.mensagem || "Agenda gerada com sucesso!");
+  } catch (e) {
+    console.error("Erro ao gerar agenda:", e);
+    alert("Erro ao gerar agenda: " + e.message);
+  }
+}
+
+function editarHorario(id) {
+  const h = (credenciais[usuarioLogado]?.horarios || []).find(x => Number(x.id) === Number(id));
+  if (!h) return;
+  document.getElementById("horario-id").value = h.id;
+  document.getElementById("slot-data").value = h.data;
+  document.getElementById("slot-hora").value = h.hora;
+  document.getElementById("form-horario-title").textContent = "Editar horário";
+  document.getElementById("btn-save-horario").textContent = "Salvar alterações";
+  document.getElementById("btn-cancel-horario").style.display = "inline-block";
+  document.getElementById("formAddHorario").scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+async function salvarHorarioDisponivel(event) {
+  event.preventDefault(); if (!usuarioLogado) return;
+  const id = document.getElementById("horario-id").value;
+  const data = document.getElementById("slot-data").value;
+  const hora = document.getElementById("slot-hora").value;
+  try {
+    const url = id ? API_BASE + "/horarios/" + id : API_BASE + "/horarios";
+    const method = id ? "PUT" : "POST";
+    const resp = await fetch(url,{method,headers:{"Content-Type":"application/json"},body:JSON.stringify({usuario:usuarioLogado,data,hora,status:"livre"})});
+    const r = await resp.json(); if(!resp.ok) throw new Error(r.erro || "Erro ao salvar horário.");
+    cancelarEdicaoHorario(); await carregarPainelFuncionaria(); alert(r.mensagem || "Horário salvo com sucesso!");
+  } catch(e) { alert("Não foi possível salvar o horário: " + e.message); }
+}
+
+async function alternarStatusHorario(id, status) {
+  if (!usuarioLogado) return;
+  const h = (credenciais[usuarioLogado]?.horarios || []).find(x => Number(x.id) === Number(id));
+  if (!h) return;
+  try {
+    const resp = await fetch(API_BASE + "/horarios/" + id,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({usuario:usuarioLogado,data:h.data,hora:h.hora,status})});
+    const r = await resp.json(); if (!resp.ok) throw new Error(r.erro || "Não foi possível alterar o status.");
+    await carregarPainelFuncionaria();
+  } catch(e) { alert(e.message); }
+}
+
+async function excluirHorario(id) {
+  if (!usuarioLogado || !confirm("Excluir este horário?")) return;
+  try {
+    const resp=await fetch(API_BASE+"/horarios/"+id,{method:"DELETE",headers:{"Content-Type":"application/json"},body:JSON.stringify({usuario:usuarioLogado})});
+    const r=await resp.json(); if(!resp.ok) throw new Error(r.erro||"Erro ao excluir horário.");
+    await carregarPainelFuncionaria();
+    alert(r.mensagem || "Horário excluído.");
+  } catch(e) { alert(e.message); }
+}
+
+async function excluirTodosHorarios() {
+  if (!usuarioLogado) return;
+  const confirmar = confirm("Tem certeza que deseja excluir TODOS os horários cadastrados desta profissional? Os horários com agendamentos confirmados serão preservados.");
+  if (!confirmar) return;
+  try {
+    const resp = await fetch(API_BASE + "/horarios", {
+      method: "DELETE",
+      headers: {"Content-Type": "application/json", "Accept": "application/json"},
+      body: JSON.stringify({usuario: usuarioLogado})
+    });
+    const r = await resp.json();
+    if (!resp.ok) throw new Error(r.erro || "Não foi possível excluir os horários.");
+    cancelarEdicaoHorario();
+    await carregarPainelFuncionaria();
+    alert(r.mensagem || "Operação concluída.");
+  } catch (e) {
+    alert("Erro ao excluir os horários: " + e.message);
+  }
+}
+
+function cancelarEdicaoHorario() {
+  const form = document.getElementById("formAddHorario");
+  if (form) form.reset();
+  document.getElementById("horario-id").value = "";
+  const titulo = document.getElementById("form-horario-title");
+  const botao = document.getElementById("btn-save-horario");
+  if (titulo) titulo.textContent = "Adicionar ou editar horário";
+  if (botao) botao.textContent = "Disponibilizar horário";
+  const cancelar = document.getElementById("btn-cancel-horario");
+  if (cancelar) cancelar.style.display = "none";
+}
+
+function atualizarTabelasEVitrine() {
+  if (typeof renderizarVitrineProdutos === "function") {
+    renderizarVitrineProdutos();
+  }
+
+  if (typeof renderizarTabelaProdutosStaff === "function") {
+    renderizarTabelaProdutosStaff();
+  }
+}
+document.addEventListener("DOMContentLoaded", async function() {
+  await carregarFuncionariasBackend();
+  atualizarSelectProfissionais();
+});
+</script>
+
+<script>
+const API_URL = API_BASE + "/produtos";
+const API_CLIENTES = API_BASE + "/clientes";
+const API_VENDAS = API_BASE + "/vendas";
+
+async function obterJSON(resposta) {
+  const dados = await resposta.json().catch(() => ({}));
+
+  if (!resposta.ok) {
+    throw new Error(dados.erro || "Erro HTTP " + resposta.status);
+  }
+
+  return dados;
+}
+
+
+const CHAVE_CLIENTE = "esteticaCliente";
+
+function obterClienteLocal() {
+  try {
+    return JSON.parse(localStorage.getItem(CHAVE_CLIENTE)) || null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function salvarClienteLocal(dados) {
+  try {
+    const atual = obterClienteLocal() || {};
+    const novo = Object.assign({}, atual);
+    
+    Object.keys(dados).forEach(function(k) {
+      if (dados[k]) novo[k] = dados[k];
+    });
+    localStorage.setItem(CHAVE_CLIENTE, JSON.stringify(novo));
+  } catch (e) {
+    console.error("Não foi possível salvar os dados do cliente:", e);
+  }
+  preencherFormulariosComCliente();
+}
+
+function limparClienteLocal() {
+  try {
+    localStorage.removeItem(CHAVE_CLIENTE);
+  } catch (e) {}
+
+  ["ag-nome", "ag-telefone", "ag-email", "car-nome", "car-telefone", "car-cpf"].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) el.value = "";
+  });
+
+  preencherFormulariosComCliente();
+}
+
+function formatarCPF(cpf) {
+  const d = String(cpf || "").replace(/\D/g, "").padStart(11, "0");
+  return d.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+}
+
+function formatarTelefone(tel) {
+  const d = String(tel || "").replace(/\D/g, "");
+  if (d.length === 11) return d.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+  if (d.length === 10) return d.replace(/(\d{2})(\d{4})(\d{4})/, "($1) $2-$3");
+  return tel || "";
+}
+
+function preencherFormulariosComCliente() {
+  const c = obterClienteLocal();
+
+  const campos = {
+    "ag-nome": c && c.nome,
+    "ag-telefone": c && c.telefone ? formatarTelefone(c.telefone) : "",
+    "ag-email": c && c.email,
+    "car-nome": c && c.nome,
+    "car-telefone": c && c.telefone ? formatarTelefone(c.telefone) : "",
+    "car-cpf": c && c.cpf ? formatarCPF(c.cpf) : ""
+  };
+
+  Object.keys(campos).forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el && campos[id] && !el.value) el.value = campos[id];
+  });
+
+  document.querySelectorAll(".aviso-cliente").forEach(function(div) {
+    if (c && c.nome) {
+      div.style.display = "block";
+      div.innerHTML = "";
+
+      const texto = document.createElement("span");
+      texto.textContent = "Olá, " + c.nome.split(" ")[0] + "! Seus dados foram preenchidos. ";
+
+      const link = document.createElement("a");
+      link.textContent = "Não sou eu";
+      link.style.cssText = "color:var(--dark-pink);cursor:pointer;text-decoration:underline;";
+      link.onclick = limparClienteLocal;
+
+      div.appendChild(texto);
+      div.appendChild(link);
+    } else {
+      div.style.display = "none";
+    }
+  });
+}
+
+
+async function buscarClientePorCpf() {
+  const campo = document.getElementById("car-cpf");
+  if (!campo) return;
+
+  const cpf = campo.value.replace(/\D/g, "");
+  if (cpf.length !== 11) return;
+
+  try {
+    const resposta = await fetch(API_CLIENTES + "/" + cpf);
+    if (!resposta.ok) return; 
+
+    const c = await resposta.json();
+
+    document.getElementById("car-nome").value = c.nome;
+    document.getElementById("car-telefone").value = formatarTelefone(c.telefone);
+
+    salvarClienteLocal({
+      cpf: c.cpf,
+      nome: c.nome,
+      telefone: c.telefone,
+      email: c.email,
+      data_nascimento: c.data_nascimento
+    });
+  } catch (e) {
+    console.error("Erro ao buscar cliente:", e);
+  }
+}
+
+
+async function carregarProdutosDoBackend() {
+  try {
+    const resposta = await fetch(API_URL);
+    const dados = await obterJSON(resposta);
+
+    if (!Array.isArray(dados)) {
+      throw new Error("O servidor não retornou uma lista de produtos.");
+    }
+
+    produtos = dados.map(function(p) {
+      return {
+        id: Number(p.id),
+        nome: p.nome || "",
+        preco: Number(p.preco) || 0,
+        desc: p.desc || p.descricao || "",
+        img: p.imagem || p.img || "https://via.placeholder.com/600x400?text=Produto",
+        estoque: Number(p.estoque) || 0,
+        disponivel: p.disponivel !== false
+      };
+    });
+
+    renderizarVitrineProdutos();
+    renderizarTabelaProdutosStaff();
+    preencherProdutosVenda();
+    preencherProdutosItemVenda();
+
+  } catch (erro) {
+    console.error("Erro ao carregar produtos:", erro);
+
+    const tabela = document.getElementById("staff-produtos-list");
+    if (tabela) {
+      tabela.innerHTML =
+        '<tr><td colspan="6" class="empty-msg">' +
+        'Não foi possível carregar os produtos.<br>' +
+        erro.message +
+        '</td></tr>';
+    }
+  }
+}
+
+async function salvarProduto(event) {
+  event.preventDefault();
+
+  const campoId = document.getElementById("prod-id");
+  const campoNome = document.getElementById("prod-nome");
+  const campoPreco = document.getElementById("prod-preco");
+  const campoDescricao = document.getElementById("prod-descricao");
+
+  if (!campoNome || !campoPreco || !campoDescricao) {
+    alert("Formulário de produto não encontrado.");
+    return;
+  }
+
+  const id = campoId ? campoId.value.trim() : "";
+  const nome = campoNome.value.trim();
+  const preco = Number(campoPreco.value);
+  const descricao = campoDescricao.value.trim();
+  const estoque = Math.max(0, Number(document.getElementById("prod-estoque")?.value || 0));
+  const imagem = document.getElementById("prod-imagem")?.value.trim() || "";
+  const disponivel = document.getElementById("prod-disponivel")?.checked !== false;
+
+  if (!nome) {
+    alert("Informe o nome do produto.");
+    return;
+  }
+
+  if (!Number.isFinite(preco) || preco < 0) {
+    alert("Informe um preço válido.");
+    return;
+  }
+
+  if (!descricao) {
+    alert("Informe a descrição do produto.");
+    return;
+  }
+
+  try {
+    const resposta = await fetch(
+      id ? API_URL + "/" + id : API_URL,
+      {
+        method: id ? "PUT" : "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nome, preco, descricao, estoque, imagem, disponivel })
+      }
+    );
+
+    await obterJSON(resposta);
+
+    alert(id ? "Produto alterado com sucesso!" : "Produto cadastrado com sucesso!");
+
+    cancelarEdicaoProduto();
+    await carregarProdutosDoBackend();
+
+  } catch (erro) {
+    console.error(erro);
+    alert("Erro ao salvar produto: " + erro.message);
+  }
+}
+
+function editarProduto(id) {
+  const produto = produtos.find(function(p) {
+    return Number(p.id) === Number(id);
+  });
+
+  if (!produto) {
+    alert("Produto não encontrado.");
+    return;
+  }
+
+  document.getElementById("prod-id").value = produto.id;
+  document.getElementById("prod-nome").value = produto.nome;
+  document.getElementById("prod-preco").value = Number(produto.preco).toFixed(2);
+  document.getElementById("prod-descricao").value = produto.desc || produto.descricao || "";
+  document.getElementById("prod-estoque").value = produto.estoque || 0;
+  document.getElementById("prod-imagem").value = produto.img && !produto.img.includes("placeholder") ? produto.img : "";
+  document.getElementById("prod-disponivel").checked = produto.disponivel !== false;
+
+  document.getElementById("form-produto-title").textContent = "Alterar Produto";
+  document.getElementById("btn-save-prod").textContent = "Salvar Alterações";
+  document.getElementById("btn-cancel-prod").style.display = "inline-block";
+
+  document.getElementById("formAddProduto").scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+}
+
+function cancelarEdicaoProduto() {
+  const form = document.getElementById("formAddProduto");
+  if (form) form.reset();
+
+  const id = document.getElementById("prod-id");
+  const titulo = document.getElementById("form-produto-title");
+  const salvar = document.getElementById("btn-save-prod");
+  const cancelar = document.getElementById("btn-cancel-prod");
+
+  if (id) id.value = "";
+  if (titulo) titulo.textContent = "Adicionar Novo Produto";
+  if (salvar) salvar.textContent = "Salvar Produto";
+  if (cancelar) cancelar.style.display = "none";
+}
+
+async function excluirProduto(id) {
+  if (!confirm("Tem certeza que deseja excluir este produto?")) {
+    return;
+  }
+
+  try {
+    const resposta = await fetch(API_URL + "/" + id, { method: "DELETE" });
+
+    await obterJSON(resposta);
+    await carregarProdutosDoBackend();
+
+    alert("Produto excluído com sucesso!");
+
+  } catch (erro) {
+    console.error(erro);
+    alert("Erro ao excluir produto: " + erro.message);
+  }
+}
+
+function renderizarTabelaProdutosStaff() {
+  const tbody = document.getElementById("staff-produtos-list");
+
+  if (!tbody) return;
+
+  tbody.innerHTML = "";
+
+  if (!Array.isArray(produtos) || produtos.length === 0) {
+    tbody.innerHTML =
+      '<tr><td colspan="6" class="empty-msg">Nenhum produto cadastrado.</td></tr>';
+    return;
+  }
+
+  produtos.forEach(function(produto) {
+    const tr = document.createElement("tr");
+
+    const tdNome = document.createElement("td");
+    tdNome.textContent = produto.nome;
+
+    const tdDescricao = document.createElement("td");
+    tdDescricao.textContent = produto.desc || produto.descricao || "Sem descrição";
+
+    const tdPreco = document.createElement("td");
+    tdPreco.textContent = "R$ " + Number(produto.preco).toFixed(2).replace(".", ",");
+
+    const tdEstoque = document.createElement("td"); tdEstoque.textContent = String(produto.estoque ?? 0);
+    const tdDisponivel = document.createElement("td"); tdDisponivel.textContent = produto.disponivel === false ? "Não" : "Sim";
+    const tdAcoes = document.createElement("td");
+
+    const btnEditar = document.createElement("button");
+    btnEditar.type = "button";
+    btnEditar.className = "btn-edit";
+    btnEditar.textContent = "Editar";
+    btnEditar.onclick = function() { editarProduto(produto.id); };
+
+    const btnExcluir = document.createElement("button");
+    btnExcluir.type = "button";
+    btnExcluir.className = "btn-danger";
+    btnExcluir.textContent = "Excluir";
+    btnExcluir.onclick = function() { excluirProduto(produto.id); };
+
+    tdAcoes.appendChild(btnEditar);
+    tdAcoes.appendChild(btnExcluir);
+
+    tr.appendChild(tdNome);
+    tr.appendChild(tdDescricao);
+    tr.appendChild(tdPreco);
+    tr.appendChild(tdEstoque);
+    tr.appendChild(tdDisponivel);
+    tr.appendChild(tdAcoes);
+
+    tbody.appendChild(tr);
+  });
+}
+
+
+async function carregarClientesBackend() {
+  try {
+    const resposta = await fetch(API_CLIENTES);
+    clientesCadastrados = await obterJSON(resposta);
+    filtrarClientesStaff();
+  } catch (erro) {
+    console.error("Erro ao carregar clientes:", erro);
+  }
+}
+
+function filtrarClientesStaff() {
+  const texto = (document.getElementById("filtro-cliente-texto")?.value || "")
+    .toLocaleLowerCase("pt-BR").trim();
+  const nascimentoInicio = document.getElementById("filtro-cliente-nascimento-inicio")?.value || "";
+  const nascimentoFim = document.getElementById("filtro-cliente-nascimento-fim")?.value || "";
+
+  const filtrados = clientesCadastrados.filter(function(cliente) {
+    const campos = [
+      cliente.nome, cliente.cpf, cliente.telefone, cliente.email
+    ].map(function(valor) {
+      return String(valor || "").toLocaleLowerCase("pt-BR");
+    });
+
+    const correspondeTexto = !texto || campos.some(function(valor) {
+      return valor.includes(texto);
+    });
+
+    const nascimento = String(cliente.data_nascimento || "").substring(0, 10);
+    const correspondeInicio = !nascimentoInicio || (nascimento && nascimento >= nascimentoInicio);
+    const correspondeFim = !nascimentoFim || (nascimento && nascimento <= nascimentoFim);
+
+    return correspondeTexto && correspondeInicio && correspondeFim;
+  });
+
+  renderizarTabelaClientesStaff(filtrados);
+}
+
+function limparFiltrosClientes() {
+  ["filtro-cliente-texto", "filtro-cliente-nascimento-inicio",
+   "filtro-cliente-nascimento-fim"].forEach(function(id) {
+    const campo = document.getElementById(id);
+    if (campo) campo.value = "";
+  });
+  renderizarTabelaClientesStaff(clientesCadastrados);
+}
+
+function renderizarTabelaClientesStaff(listaClientes) {
+  const tbody = document.getElementById("staff-clientes-list");
+  if (!tbody) return;
+
+  const lista = Array.isArray(listaClientes) ? listaClientes : clientesCadastrados;
+  tbody.innerHTML = "";
+
+  const contador = document.getElementById("clientes-resultado-contagem");
+  if (contador) {
+    contador.textContent = lista.length + (lista.length === 1
+      ? " cliente encontrado" : " clientes encontrados");
+  }
+
+  if (!lista.length) {
+    tbody.innerHTML = '<tr><td colspan="6" class="empty-msg">Nenhum cliente encontrado com esses filtros.</td></tr>';
+    return;
+  }
+
+  lista.forEach(function(cliente) {
+    const tr = document.createElement("tr");
+
+    [cliente.cpf, cliente.nome, cliente.telefone, cliente.email].forEach(function(valor) {
+      const td = document.createElement("td");
+      td.textContent = valor == null ? "" : valor;
+      tr.appendChild(td);
+    });
+
+    const tdNascimento = document.createElement("td");
+    const nascimento = String(cliente.data_nascimento || "").substring(0, 10);
+    tdNascimento.textContent = nascimento ? formatarDataBR(nascimento) : "Não informado";
+    tr.appendChild(tdNascimento);
+
+    const td = document.createElement("td");
+
+    const editar = document.createElement("button");
+    editar.type = "button";
+    editar.className = "btn-edit";
+    editar.textContent = "Editar";
+    editar.onclick = function() { editarCliente(cliente.cpf); };
+
+    const excluir = document.createElement("button");
+    excluir.type = "button";
+    excluir.className = "btn-danger";
+    excluir.textContent = "Excluir";
+    excluir.onclick = function() { excluirCliente(cliente.cpf); };
+
+    td.appendChild(editar);
+    td.appendChild(excluir);
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+  });
+}
+
+let agendamentosGerenciaveisCache = [];
+
+async function carregarAgendamentosGerenciaveis() {
+  const tbody = document.getElementById("staff-gerenciar-agendamentos-list");
+  if (!tbody || !usuarioLogado) return;
+  tbody.innerHTML = '<tr><td colspan="7">Carregando...</td></tr>';
+  try {
+    const resp = await fetch(API_BASE + "/agendamentos?usuario=" + encodeURIComponent(usuarioLogado), {credentials:"same-origin"});
+    const lista = await resp.json();
+    if (!resp.ok) throw new Error(lista.erro || "Falha ao carregar agendamentos.");
+    agendamentosGerenciaveisCache = Array.isArray(lista) ? lista : [];
+    filtrarAgendamentosGerenciaveis();
+  } catch(e) { tbody.innerHTML='<tr><td colspan="7">'+e.message+'</td></tr>'; }
+}
+
+function filtrarAgendamentosGerenciaveis() {
+  const tbody = document.getElementById("staff-gerenciar-agendamentos-list");
+  const campo = document.getElementById("pesquisa-agendamentos");
+  const resumo = document.getElementById("resultado-pesquisa-agendamentos");
+  if (!tbody) return;
+  const termo = (campo?.value || "").trim().toLocaleLowerCase("pt-BR");
+  const normalizar = valor => String(valor ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("pt-BR");
+  const encontrados = agendamentosGerenciaveisCache.filter(a => {
+    const texto = [a.cliente, a.telefone, a.servico, a.observacoes, a.data_atendimento, formatarDataBR(a.data_atendimento), a.hora].map(normalizar).join(" ");
+    return texto.includes(normalizar(termo));
+  });
+  tbody.innerHTML = "";
+  if (resumo) resumo.textContent = termo ? encontrados.length + " de " + agendamentosGerenciaveisCache.length + " agendamento(s) encontrado(s)." : agendamentosGerenciaveisCache.length + " agendamento(s) cadastrado(s).";
+  if (!encontrados.length) { tbody.innerHTML = '<tr><td colspan="7">Nenhum agendamento corresponde à pesquisa.</td></tr>'; return; }
+  encontrados.forEach(a => {
+    const tr = document.createElement("tr");
+    [formatarDataBR(a.data_atendimento), String(a.hora).slice(0,5), a.cliente, a.telefone, a.servico, a.observacoes || "-"].forEach(v => { const td=document.createElement("td"); td.textContent=v; tr.appendChild(td); });
+    const td=document.createElement("td");
+    const editar=document.createElement("button"); editar.type="button"; editar.className="btn-gold"; editar.textContent="Editar"; editar.onclick=()=>abrirEdicaoAgendamento(a);
+    const excluir=document.createElement("button"); excluir.type="button"; excluir.className="btn-danger"; excluir.textContent="Excluir"; excluir.style.marginLeft="6px"; excluir.onclick=()=>excluirAgendamento(a.id_agendamento);
+    td.append(editar,excluir); tr.appendChild(td); tbody.appendChild(tr);
+  });
+}
+
+async function abrirEdicaoAgendamento(a) {
+  document.getElementById("editar-agendamento-id").value=a.id_agendamento;
+  document.getElementById("editar-agendamento-data").value=String(a.data_atendimento).slice(0,10);
+  document.getElementById("editar-agendamento-hora").value=String(a.hora).slice(0,5);
+  document.getElementById("editar-agendamento-obs").value=a.observacoes || "";
+  const select=document.getElementById("editar-agendamento-servico");
+  select.innerHTML="";
+  const resp=await fetch(API_BASE+"/servicos",{credentials:"same-origin"});
+  const servicos=await resp.json();
+  servicos.filter(s=>s.ativo !== false && s.usuario === usuarioLogado).forEach(s=>{const o=document.createElement("option");o.value=s.id;o.textContent=s.nome+" - "+formatarMoeda(s.preco);if(s.nome===a.servico)o.selected=true;select.appendChild(o);});
+  document.getElementById("editar-agendamento-box").style.display="block";
+  document.getElementById("editar-agendamento-box").scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+async function salvarEdicaoAgendamento(event) {
+  event.preventDefault();
+  const id=document.getElementById("editar-agendamento-id").value;
+  const dados={data:document.getElementById("editar-agendamento-data").value,hora:document.getElementById("editar-agendamento-hora").value,id_servico:document.getElementById("editar-agendamento-servico").value,observacoes:document.getElementById("editar-agendamento-obs").value};
+  try { const resp=await fetch(API_BASE+"/agendamentos/"+id,{method:"PUT",headers:{"Content-Type":"application/json"},credentials:"same-origin",body:JSON.stringify(dados)}); const r=await resp.json(); if(!resp.ok) throw new Error(r.erro||"Não foi possível atualizar."); alert(r.mensagem); document.getElementById("editar-agendamento-box").style.display="none"; await carregarAgendamentosGerenciaveis(); await carregarPainelFuncionaria(); }
+  catch(e){alert("Erro ao editar agendamento: "+e.message);}
+}
+
+async function excluirAgendamento(id) {
+  if(!confirm("Deseja realmente excluir este agendamento? O horário será liberado.")) return;
+  try { const resp=await fetch(API_BASE+"/agendamentos/"+id,{method:"DELETE",credentials:"same-origin"}); const r=await resp.json(); if(!resp.ok) throw new Error(r.erro||"Não foi possível excluir."); alert(r.mensagem); await carregarAgendamentosGerenciaveis(); await carregarPainelFuncionaria(); }
+  catch(e){alert("Erro ao excluir agendamento: "+e.message);}
+}
+
+function abrirAbaStaff(aba, botao) {
+  if (usuarioLogado !== "keli" && ["vendas", "produtos", "relatorios", "funcionarias"].includes(aba)) {
+    alert("Acesso restrito: somente Keli pode acessar Produtos, Vendas, Relatórios e Funcionárias.");
+    aba = "geral";
+    botao = document.querySelector(".staff-tab-button");
+  }
+  document.querySelectorAll(".staff-tab-content").forEach(function(conteudo) {
+    conteudo.classList.remove("active");
+  });
+  document.querySelectorAll(".staff-tab-button").forEach(function(item) {
+    item.classList.remove("active");
+  });
+
+  const destino = document.getElementById("staff-tab-" + aba);
+  if (destino) destino.classList.add("active");
+  if (botao) botao.classList.add("active");
+
+  if (aba === "clientes") {
+    carregarClientesBackend();
+  }
+  if (aba === "agendamentos") {
+    carregarAgendamentosGerenciaveis();
+  }
+  if (aba === "vendas") {
+    carregarVendasBackend();
+    carregarItensVenda();
+  }
+  if (aba === "produtos") carregarProdutosDoBackend();
+  if (aba === "relatorios") carregarRelatorioProdutos2026();
+  if (aba === "funcionarias") carregarFuncionariasBackend();
+}
+
+async function salvarCliente(event) {
+  event.preventDefault();
+
+  const original = document.getElementById("cliente-cpf-original").value;
+  const cpf = document.getElementById("cliente-cpf").value.replace(/\D/g, "");
+  const nome = document.getElementById("cliente-nome").value.trim();
+  const telefone = document.getElementById("cliente-telefone").value.replace(/\D/g, "");
+  const email = document.getElementById("cliente-email").value.trim();
+  const nascimento = document.getElementById("cliente-nascimento").value;
+
+  if (cpf.length !== 11) {
+    alert("CPF deve possuir 11 dígitos.");
+    return;
+  }
+
+  try {
+    const resposta = await fetch(
+      original ? API_CLIENTES + "/" + original : API_CLIENTES,
+      {
+        method: original ? "PUT" : "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          cpf: cpf,
+          nome: nome,
+          telefone: telefone,
+          email: email,
+          data_nascimento: nascimento
+        })
+      }
+    );
+
+    await obterJSON(resposta);
+    alert(original ? "Cliente alterado com sucesso!" : "Cliente cadastrado com sucesso!");
+    cancelarEdicaoCliente();
+    await carregarClientesBackend();
+
+  } catch (erro) {
+    alert("Erro ao salvar cliente: " + erro.message);
+  }
+}
+
+function editarCliente(cpf) {
+  const cliente = clientesCadastrados.find(function(item) {
+    return String(item.cpf) === String(cpf);
+  });
+
+  if (!cliente) return;
+
+  document.getElementById("cliente-cpf-original").value = cliente.cpf;
+  document.getElementById("cliente-cpf").value = cliente.cpf;
+  document.getElementById("cliente-cpf").readOnly = false;
+  document.getElementById("cliente-nome").value = cliente.nome;
+  document.getElementById("cliente-telefone").value = cliente.telefone;
+  document.getElementById("cliente-email").value = cliente.email;
+  document.getElementById("cliente-nascimento").value = String(cliente.data_nascimento).substring(0, 10);
+  document.getElementById("form-cliente-title").textContent = "Alterar Cliente";
+  document.getElementById("btn-save-cliente").textContent = "Salvar Alterações";
+  document.getElementById("btn-cancel-cliente").style.display = "inline-block";
+}
+
+function cancelarEdicaoCliente() {
+  document.getElementById("formAddCliente").reset();
+  document.getElementById("cliente-cpf-original").value = "";
+  document.getElementById("cliente-cpf").readOnly = false;
+  document.getElementById("form-cliente-title").textContent = "Cadastrar Cliente";
+  document.getElementById("btn-save-cliente").textContent = "Salvar Cliente";
+  document.getElementById("btn-cancel-cliente").style.display = "none";
+}
+
+async function excluirCliente(cpf) {
+  if (!confirm("Tem certeza que deseja excluir este cliente?")) return;
+
+  try {
+    const resposta = await fetch(API_CLIENTES + "/" + cpf, { method: "DELETE" });
+    await obterJSON(resposta);
+    await carregarClientesBackend();
+    alert("Cliente excluído com sucesso!");
+  } catch (erro) {
+    alert("Erro ao excluir cliente: " + erro.message);
+  }
+}
+
+async function carregarVendasBackend() {
+  try {
+    const resposta = await fetch(API_VENDAS);
+    const vendas = await obterJSON(resposta);
+    window.vendasCarregadas = vendas;
+    filtrarVendasStaff();
+    preencherVendasItemVenda();
+  } catch (erro) {
+    console.error("Erro ao carregar vendas:", erro);
+  }
+}
+
+function filtrarVendasStaff() {
+  const vendas = window.vendasCarregadas || [];
+  const texto = (document.getElementById("filtro-venda-texto")?.value || "").trim().toLowerCase();
+  const inicio = document.getElementById("filtro-venda-data-inicio")?.value || "";
+  const fim = document.getElementById("filtro-venda-data-fim")?.value || "";
+  const filtradas = vendas.filter(function(v) {
+    const data = String(v.data_venda || "").substring(0, 10);
+    const alvo = [v.cliente, v.cpf_cliente, v.produtos, v.metodo_pagamento, v.id_venda].join(" ").toLowerCase();
+    return (!texto || alvo.includes(texto)) && (!inicio || data >= inicio) && (!fim || data <= fim);
+  });
+  renderizarTabelaVendasStaff(filtradas);
+  const contador = document.getElementById("vendas-resultado-contagem");
+  if (contador) contador.textContent = filtradas.length + (filtradas.length === 1 ? " venda encontrada" : " vendas encontradas");
+}
+
+function limparFiltrosVendas() {
+  ["filtro-venda-texto", "filtro-venda-data-inicio", "filtro-venda-data-fim"].forEach(function(id) {
+    const campo = document.getElementById(id);
+    if (campo) campo.value = "";
+  });
+  filtrarVendasStaff();
+}
+
+function renderizarTabelaVendasStaff(vendas) {
+  const tbody = document.getElementById("staff-vendas-list");
+  const resumo = document.getElementById("vendas-list");
+
+  if (tbody) {
+    tbody.innerHTML = "";
+
+    if (!vendas.length) {
+      tbody.innerHTML = '<tr><td colspan="7" class="empty-msg">Nenhuma venda cadastrada.</td></tr>';
+    } else {
+      vendas.forEach(function(venda) {
+        const tr = document.createElement("tr");
+
+        [
+          venda.id_venda,
+          venda.cliente,
+          formatarDataBR(String(venda.data_venda).substring(0, 10)),
+          venda.metodo_pagamento,
+          "R$ " + Number(venda.valor_total).toFixed(2).replace(".", ","),
+          venda.produtos || "-"
+        ].forEach(function(valor) {
+          const td = document.createElement("td");
+          td.textContent = valor;
+          tr.appendChild(td);
+        });
+
+        const td = document.createElement("td");
+
+        const editar = document.createElement("button");
+        editar.type = "button";
+        editar.className = "btn-edit";
+        editar.textContent = "Editar";
+        editar.onclick = function() { editarVenda(venda.id_venda); };
+
+        const excluir = document.createElement("button");
+        excluir.type = "button";
+        excluir.className = "btn-danger";
+        excluir.textContent = "Excluir";
+        excluir.onclick = function() { excluirVenda(venda.id_venda); };
+
+        td.appendChild(editar);
+        td.appendChild(excluir);
+        tr.appendChild(td);
+        tbody.appendChild(tr);
+      });
+    }
+  }
+
+  if (resumo) {
+    resumo.innerHTML = "";
+
+    if (!vendas.length) {
+      resumo.innerHTML = '<tr><td colspan="4" class="empty-msg">Nenhuma venda registrada.</td></tr>';
+    } else {
+      vendas.forEach(function(venda) {
+        const tr = document.createElement("tr");
+        [
+          venda.cliente,
+          venda.metodo_pagamento,
+          "R$ " + Number(venda.valor_total).toFixed(2).replace(".", ","),
+          venda.produtos || "-"
+        ].forEach(function(valor) {
+          const td = document.createElement("td");
+          td.textContent = valor;
+          tr.appendChild(td);
+        });
+        resumo.appendChild(tr);
+      });
+    }
+  }
+}
+
+function preencherProdutosVenda() {
+  const select = document.getElementById("venda-produto");
+  if (!select) return;
+
+  select.innerHTML = '<option value="" disabled hidden selected>Selecione o produto...</option>';
+
+  produtos.forEach(function(produto) {
+    const option = document.createElement("option");
+    option.value = produto.id;
+    option.textContent = produto.nome + " - R$ " +
+      Number(produto.preco).toFixed(2).replace(".", ",");
+    select.appendChild(option);
+  });
+}
+
+function formatarMoeda(valor) {
+  return "R$ " + Number(valor || 0).toFixed(2).replace(".", ",");
+}
+
+function adicionarItemRascunhoVenda() {
+  const idProduto = Number(document.getElementById("venda-produto").value);
+  const quantidade = Number(document.getElementById("venda-quantidade").value);
+  const produto = produtos.find(function(p) { return Number(p.id) === idProduto; });
+
+  if (!produto) {
+    alert("Selecione um produto.");
+    return;
+  }
+  if (!Number.isInteger(quantidade) || quantidade < 1) {
+    alert("Informe uma quantidade válida.");
+    return;
+  }
+
+  const existente = itensRascunhoVenda.find(function(item) {
+    return Number(item.id_produto) === idProduto;
+  });
+
+  if (existente) {
+    existente.quantidade += quantidade;
+  } else {
+    itensRascunhoVenda.push({
+      id_produto: idProduto,
+      nome: produto.nome,
+      preco: Number(produto.preco),
+      quantidade: quantidade
+    });
+  }
+
+  document.getElementById("venda-produto").value = "";
+  document.getElementById("venda-quantidade").value = 1;
+  renderizarItensRascunhoVenda();
+}
+
+function removerItemRascunhoVenda(idProduto) {
+  itensRascunhoVenda = itensRascunhoVenda.filter(function(item) {
+    return Number(item.id_produto) !== Number(idProduto);
+  });
+  renderizarItensRascunhoVenda();
+}
+
+function renderizarItensRascunhoVenda() {
+  const lista = document.getElementById("venda-itens-rascunho");
+  const totalElemento = document.getElementById("venda-total-rascunho");
+  if (!lista || !totalElemento) return;
+
+  lista.innerHTML = "";
+  const total = itensRascunhoVenda.reduce(function(soma, item) {
+    return soma + item.preco * item.quantidade;
+  }, 0);
+
+  if (!itensRascunhoVenda.length) {
+    lista.innerHTML = '<p class="empty-msg">Nenhum produto adicionado à venda.</p>';
+  } else {
+    itensRascunhoVenda.forEach(function(item) {
+      const linha = document.createElement("div");
+      linha.className = "cart-item";
+
+      const texto = document.createElement("span");
+      texto.textContent = item.nome + " x" + item.quantidade + " — " +
+        formatarMoeda(item.preco * item.quantidade);
+
+      const remover = document.createElement("button");
+      remover.type = "button";
+      remover.className = "btn-danger";
+      remover.textContent = "Remover";
+      remover.onclick = function() { removerItemRascunhoVenda(item.id_produto); };
+
+      linha.appendChild(texto);
+      linha.appendChild(remover);
+      lista.appendChild(linha);
+    });
+  }
+
+  totalElemento.textContent = formatarMoeda(total);
+}
+
+async function salvarVenda(event) {
+  event.preventDefault();
+
+  const id = document.getElementById("venda-id").value;
+  const cpf = document.getElementById("venda-cpf").value.replace(/\D/g, "");
+  const data = document.getElementById("venda-data").value;
+  const pagamento = document.getElementById("venda-pagamento").value;
+
+  if (cpf.length !== 11) {
+    alert("CPF deve possuir 11 dígitos.");
+    return;
+  }
+
+  if (!data || !pagamento) {
+    alert("Informe a data e o método de pagamento.");
+    return;
+  }
+
+  if (!itensRascunhoVenda.length) {
+    alert("Adicione pelo menos um produto à venda.");
+    return;
+  }
+
+  const corpo = {
+    cpf_cliente: cpf,
+    data_venda: data,
+    metodo_pagamento: pagamento,
+    itens: itensRascunhoVenda.map(function(item) {
+      return {
+        id_produto: Number(item.id_produto),
+        quantidade: Number(item.quantidade)
+      };
+    })
+  };
+
+  let url = API_VENDAS;
+  let metodo = "POST";
+  if (id) {
+    url += "/" + id;
+    metodo = "PUT";
+  }
+
+  try {
+    const resposta = await fetch(url, {
+      method: metodo,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(corpo)
+    });
+
+    const resultado = await obterJSON(resposta);
+    alert((id ? "Venda alterada" : "Venda cadastrada") + " com sucesso!" +
+      (resultado.valor_total !== undefined ? "\nTotal: " + formatarMoeda(resultado.valor_total) : ""));
+    cancelarEdicaoVenda();
+    await carregarVendasBackend();
+  } catch (erro) {
+    alert("Erro ao salvar venda: " + erro.message);
+  }
+}
+
+async function obterVenda(id) {
+  const resposta = await fetch(API_VENDAS);
+  const vendas = await obterJSON(resposta);
+
+  return vendas.find(function(venda) {
+    return Number(venda.id_venda) === Number(id);
+  });
+}
+
+async function editarVenda(id) {
+  try {
+    const venda = await obterVenda(id);
+
+    if (!venda) {
+      alert("Venda não encontrada.");
+      return;
+    }
+
+    document.getElementById("venda-id").value = venda.id_venda;
+    document.getElementById("venda-cpf").value = venda.cpf_cliente;
+    document.getElementById("venda-data").value = String(venda.data_venda).substring(0, 10);
+    document.getElementById("venda-pagamento").value = venda.metodo_pagamento;
+
+    document.getElementById("venda-item-fields").style.display = "block";
+
+    itensRascunhoVenda = (venda.itens || []).map(function(item) {
+      const produto = produtos.find(function(p) {
+        return Number(p.id) === Number(item.id_produto);
+      });
+      return {
+        id_produto: Number(item.id_produto),
+        nome: produto ? produto.nome : ("Produto #" + item.id_produto),
+        preco: produto ? Number(produto.preco) : 0,
+        quantidade: Number(item.quantidade)
+      };
+    });
+    document.getElementById("venda-produto").value = "";
+    document.getElementById("venda-quantidade").value = 1;
+    renderizarItensRascunhoVenda();
+
+    document.getElementById("form-venda-title").textContent = "Alterar Venda";
+    document.getElementById("btn-save-venda").textContent = "Salvar Alterações";
+    document.getElementById("btn-cancel-venda").style.display = "inline-block";
+
+    document.getElementById("formAddVenda").scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+  } catch (erro) {
+    alert("Erro ao carregar venda: " + erro.message);
+  }
+}
+
+function cancelarEdicaoVenda() {
+  document.getElementById("formAddVenda").reset();
+  document.getElementById("venda-id").value = "";
+  document.getElementById("venda-data").value = new Date().toISOString().slice(0, 10);
+  document.getElementById("venda-item-fields").style.display = "block";
+  itensRascunhoVenda = [];
+  renderizarItensRascunhoVenda();
+  document.getElementById("form-venda-title").textContent = "Cadastrar Venda";
+  document.getElementById("btn-save-venda").textContent = "Salvar Venda";
+  document.getElementById("btn-cancel-venda").style.display = "none";
+}
+
+async function excluirVenda(id) {
+  if (!confirm("Tem certeza que deseja excluir esta venda?")) return;
+
+  try {
+    const resposta = await fetch(API_VENDAS + "/" + id, { method: "DELETE" });
+    await obterJSON(resposta);
+    await carregarVendasBackend();
+    alert("Venda excluída com sucesso!");
+  } catch (erro) {
+    alert("Erro ao excluir venda: " + erro.message);
+  }
+}
+
+const API_ITENS_VENDA = API_BASE + "/itens-venda";
+const API_RELATORIO_ATENDIMENTO = API_BASE + "/relatorio-atendimentos-profissional";
+let itensVenda = [];
+let itemVendaEmEdicao = null;
+let itensRascunhoVenda = [];
+
+async function carregarItensVenda() {
+  try {
+    const resposta = await fetch(API_ITENS_VENDA);
+    itensVenda = await obterJSON(resposta);
+    renderizarTabelaItensVenda();
+    preencherVendasItemVenda();
+    preencherProdutosItemVenda();
+  } catch (erro) {
+    console.error("Erro ao carregar itens da venda:", erro);
+    const tbody = document.getElementById("staff-itens-venda-list");
+    if (tbody) tbody.innerHTML = '<tr><td colspan="6" class="empty-msg">Não foi possível carregar os itens: ' + erro.message + '</td></tr>';
+  }
+}
+
+function preencherVendasItemVenda() {
+  const select = document.getElementById("item-venda-id");
+  if (!select) return;
+  const selecionado = select.value;
+  select.innerHTML = '<option value="" disabled hidden selected>Selecione a venda...</option>';
+  const vendas = window.vendasCarregadas || [];
+  vendas.forEach(function(venda) {
+    const option = document.createElement("option");
+    option.value = venda.id_venda;
+    option.textContent = "Venda #" + venda.id_venda + " - " + (venda.cliente || venda.cpf_cliente);
+    select.appendChild(option);
+  });
+  if (selecionado) select.value = selecionado;
+}
+
+function preencherProdutosItemVenda() {
+  const select = document.getElementById("item-produto-id");
+  if (!select) return;
+  const selecionado = select.value;
+  select.innerHTML = '<option value="" disabled hidden selected>Selecione o produto...</option>';
+  produtos.forEach(function(produto) {
+    const option = document.createElement("option");
+    option.value = produto.id;
+    option.textContent = produto.nome + " - R$ " + Number(produto.preco).toFixed(2).replace(".", ",");
+    select.appendChild(option);
+  });
+  if (selecionado) select.value = selecionado;
+}
+
+async function salvarItemVenda(event) {
+  event.preventDefault();
+  const idVenda = Number(document.getElementById("item-venda-id").value);
+  const idProduto = Number(document.getElementById("item-produto-id").value);
+  const quantidade = Number(document.getElementById("item-quantidade").value);
+  const valorUnitario = Number(document.getElementById("item-valor-unitario").value);
+
+  if (!idVenda || !idProduto || !Number.isInteger(quantidade) || quantidade < 1 || !Number.isFinite(valorUnitario) || valorUnitario < 0) {
+    alert("Informe venda, produto, quantidade e valor unitário válidos.");
+    return;
+  }
+
+  const editando = itemVendaEmEdicao !== null;
+  const url = editando
+    ? API_ITENS_VENDA + "/" + itemVendaEmEdicao.id_venda + "/" + itemVendaEmEdicao.id_produto
+    : API_ITENS_VENDA;
+  const metodo = editando ? "PUT" : "POST";
+
+  try {
+    const resposta = await fetch(url, {
+      method: metodo,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id_venda: idVenda,
+        id_produto: idProduto,
+        quantidade: quantidade,
+        valor_unitario: valorUnitario
+      })
+    });
+    await obterJSON(resposta);
+    alert(editando ? "Item da venda alterado com sucesso!" : "Item adicionado à venda com sucesso!");
+    cancelarEdicaoItemVenda();
+    await carregarItensVenda();
+    await carregarVendasBackend();
+  } catch (erro) {
+    alert("Erro ao salvar item da venda: " + erro.message);
+  }
+}
+
+function renderizarTabelaItensVenda() {
+  const tbody = document.getElementById("staff-itens-venda-list");
+  if (!tbody) return;
+  tbody.innerHTML = "";
+
+  if (!itensVenda.length) {
+    tbody.innerHTML = '<tr><td colspan="7" class="empty-msg">Nenhum item de venda cadastrado.</td></tr>';
+    return;
+  }
+
+  itensVenda.forEach(function(item) {
+    const tr = document.createElement("tr");
+    const valores = [
+      "#" + item.id_venda,
+      item.nome_produto || ("Produto #" + item.id_produto),
+      item.quantidade,
+      "R$ " + Number(item.valor_unitario).toFixed(2).replace(".", ","),
+      "R$ " + (Number(item.valor_unitario) * Number(item.quantidade)).toFixed(2).replace(".", ",")
+    ];
+    valores.forEach(function(valor) {
+      const td = document.createElement("td");
+      td.textContent = valor;
+      tr.appendChild(td);
+    });
+
+    const status = document.createElement("td");
+    const retirado = item.retirado === true;
+    const btnStatus = document.createElement("button");
+    btnStatus.type = "button";
+    btnStatus.textContent = retirado ? "Retirado" : "Não retirado";
+    btnStatus.style.cssText = retirado
+      ? "background:#27ae60;color:white;border:0;border-radius:18px;padding:7px 12px;cursor:pointer;font-weight:600;"
+      : "background:#f39c12;color:white;border:0;border-radius:18px;padding:7px 12px;cursor:pointer;font-weight:600;";
+    btnStatus.title = retirado ? "Clique para marcar como não retirado" : "Clique para confirmar a retirada";
+    btnStatus.onclick = function() {
+      atualizarStatusRetirada(item.id_venda, item.id_produto, !retirado);
+    };
+    status.appendChild(btnStatus);
+    tr.appendChild(status);
+
+    const acoes = document.createElement("td");
+    const editar = document.createElement("button");
+    editar.type = "button";
+    editar.className = "btn-edit";
+    editar.textContent = "Editar";
+    editar.onclick = function() { editarItemVenda(item); };
+
+    const excluir = document.createElement("button");
+    excluir.type = "button";
+    excluir.className = "btn-danger";
+    excluir.textContent = "Excluir";
+    excluir.onclick = function() { excluirItemVenda(item.id_venda, item.id_produto); };
+
+    acoes.appendChild(editar);
+    acoes.appendChild(excluir);
+    tr.appendChild(acoes);
+    tbody.appendChild(tr);
+  });
+}
+
+async function atualizarStatusRetirada(idVenda, idProduto, retirado) {
+  try {
+    const resposta = await fetch(
+      API_ITENS_VENDA + "/" + idVenda + "/" + idProduto + "/retirada",
+      {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ retirado: retirado })
+      }
+    );
+    await obterJSON(resposta);
+    await carregarItensVenda();
+  } catch (erro) {
+    alert("Erro ao atualizar o status da retirada: " + erro.message);
+  }
+}
+
+function editarItemVenda(item) {
+  itemVendaEmEdicao = { id_venda: Number(item.id_venda), id_produto: Number(item.id_produto) };
+  document.getElementById("item-venda-id").value = item.id_venda;
+  document.getElementById("item-produto-id").value = item.id_produto;
+  document.getElementById("item-venda-id").disabled = true;
+  document.getElementById("item-produto-id").disabled = true;
+  document.getElementById("item-quantidade").value = item.quantidade;
+  document.getElementById("item-valor-unitario").value = Number(item.valor_unitario).toFixed(2);
+  document.getElementById("btn-save-item-venda").textContent = "Salvar alterações";
+  document.getElementById("btn-cancel-item-venda").style.display = "inline-block";
+  document.getElementById("formItemVenda").scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function cancelarEdicaoItemVenda() {
+  const form = document.getElementById("formItemVenda");
+  if (form) form.reset();
+  itemVendaEmEdicao = null;
+  document.getElementById("item-venda-id").disabled = false;
+  document.getElementById("item-produto-id").disabled = false;
+  document.getElementById("item-quantidade").value = 1;
+  document.getElementById("btn-save-item-venda").textContent = "Adicionar item";
+  document.getElementById("btn-cancel-item-venda").style.display = "none";
+}
+
+async function excluirItemVenda(idVenda, idProduto) {
+  if (!confirm("Deseja excluir este produto desta venda?")) return;
+  try {
+    const resposta = await fetch(API_ITENS_VENDA + "/" + idVenda + "/" + idProduto, { method: "DELETE" });
+    await obterJSON(resposta);
+    await carregarItensVenda();
+    await carregarVendasBackend();
+    alert("Item removido da venda com sucesso!");
+  } catch (erro) {
+    alert("Erro ao excluir item da venda: " + erro.message);
+  }
+}
+
+
+async function carregarRelatorioAtendimento(event) {
+  if (event) event.preventDefault();
+
+  const prof = document.getElementById("rel-profissional").value;
+  const inicio = document.getElementById("rel-data-inicio").value;
+  const fim = document.getElementById("rel-data-fim").value;
+
+  const params = new URLSearchParams();
+  if (prof) params.append("profissional", prof);
+  if (inicio) params.append("data_inicio", inicio);
+  if (fim) params.append("data_fim", fim);
+
+  const tbody = document.getElementById("relatorio-atendimentos-list");
+  tbody.innerHTML = '<tr><td colspan="7" class="empty-msg">Carregando relatório...</td></tr>';
+
+  try {
+    const res = await fetch(API_RELATORIO_ATENDIMENTO + "?" + params.toString());
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.erro || "Erro ao buscar relatório.");
+
+    document.getElementById("metric-total").textContent = data.total_atendimentos;
+    document.getElementById("metric-concluidos").textContent = data.concluidos;
+    document.getElementById("metric-faturamento").textContent = formatarMoeda(data.faturamento_total);
+
+    tbody.innerHTML = "";
+    if (!data.atendimentos.length) {
+      tbody.innerHTML = '<tr><td colspan="7" class="empty-msg">Nenhum atendimento encontrado para os filtros selecionados.</td></tr>';
+      return;
+    }
+
+    data.atendimentos.forEach(function(item) {
+      const tr = document.createElement("tr");
+      tr.innerHTML =
+        "<td>" + formatarDataBR(item.data_atendimento) + " às " + item.hora_atendimento + "</td>" +
+        "<td>" + item.cliente + "</td>" +
+        "<td>" + item.telefone + "</td>" +
+        "<td>" + item.servico + "</td>" +
+        "<td>" + formatarMoeda(item.valor) + "</td>" +
+        "<td><strong>" + item.status + "</strong></td>" +
+        "<td>" + item.observacao + "</td>";
+      tbody.appendChild(tr);
+    });
+  } catch (err) {
+    const nomeProf = prof === "amanda" ? "Amanda Rauber" : "Keli Kuhn";
+    const agendamentosSimulados = (credenciais[prof] ? credenciais[prof].agendamentos : []);
+    
+    document.getElementById("metric-total").textContent = agendamentosSimulados.length;
+    document.getElementById("metric-concluidos").textContent = agendamentosSimulados.length;
+    document.getElementById("metric-faturamento").textContent = formatarMoeda(agendamentosSimulados.length * 100);
+
+    tbody.innerHTML = "";
+    if (!agendamentosSimulados.length) {
+      tbody.innerHTML = '<tr><td colspan="7" class="empty-msg">Nenhum atendimento cadastrado para ' + nomeProf + '.</td></tr>';
+      return;
+    }
+
+    agendamentosSimulados.forEach(function(item) {
+      const tr = document.createElement("tr");
+      tr.innerHTML =
+        "<td>" + item.dataHora + "</td>" +
+        "<td>" + item.cliente + "</td>" +
+        "<td>" + item.telefone + "</td>" +
+        "<td>" + item.servico + "</td>" +
+        "<td>" + formatarMoeda(100) + "</td>" +
+        "<td><strong>Concluído</strong></td>" +
+        "<td>" + item.obs + "</td>";
+      tbody.appendChild(tr);
+    });
+  }
+}
+
+
+async function carregarRelatorioProdutos2026() {
+  const tbody = document.getElementById("tabela-relatorio-produtos-2026");
+  const status = document.getElementById("relatorio-produtos-status");
+  if (!tbody) return;
+
+  status.textContent = "Carregando relatório...";
+  tbody.innerHTML = "";
+
+  try {
+    const resposta = await fetch(API_BASE + "/relatorio-produtos-2026");
+    const dados = await obterJSON(resposta);
+
+    if (!Array.isArray(dados) || dados.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7">Nenhuma venda encontrada em 2026.</td></tr>';
+      status.textContent = "Consulta concluída.";
+      return;
+    }
+
+    dados.forEach(function(produto) {
+      const tr = document.createElement("tr");
+      const valores = [
+        produto.id_produto,
+        produto.nome,
+        produto.quantidade_vendas,
+        produto.unidades_vendidas,
+        formatarMoedaRelatorio(produto.faturamento),
+        formatarMoedaRelatorio(produto.menor_valor),
+        formatarMoedaRelatorio(produto.maior_valor)
+      ];
+      valores.forEach(function(valor) {
+        const td = document.createElement("td");
+        td.textContent = valor == null ? "-" : valor;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+
+    status.textContent = "Relatório carregado com sucesso.";
+  } catch (erro) {
+    console.error("Erro ao carregar relatório:", erro);
+    tbody.innerHTML = '<tr><td colspan="7">Não foi possível carregar o relatório.</td></tr>';
+    status.textContent = "Erro: " + erro.message;
+  }
+}
+
+function formatarMoedaRelatorio(valor) {
+  return Number(valor || 0).toLocaleString("pt-BR", {
+    style: "currency", currency: "BRL"
+  });
+}
+
+
+
+function escaparHTML(valor) {
+  return String(valor == null ? "" : valor).replace(/[&<>"']/g, function(c) {
+    return {"&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;", "'":"&#39;"}[c];
+  });
+}
+
+async function carregarServicosProfissional() {
+  const area = document.getElementById('lista-meus-servicos');
+  if (!area) return;
+  try {
+    const resp = await fetch(API_BASE + '/servicos');
+    const servicos = await resp.json();
+    if (!resp.ok) throw new Error(servicos.erro || 'Falha ao carregar serviços.');
+    const meus = servicos.filter(s => s.usuario === usuarioLogado);
+    area.innerHTML = meus.length ? meus.map(s => `<div style="display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px;border-bottom:1px solid #eee;flex-wrap:wrap"><span><strong>${escaparHTML(s.nome)}</strong> — ${Number(s.preco).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})} · ${s.duracao_minutos} min${s.descricao ? '<br><small>'+escaparHTML(s.descricao)+'</small>' : ''}</span><span><button type="button" class="btn-gold" onclick="editarServicoProfissional(${s.id})">Editar</button> <button type="button" class="btn-danger" onclick="excluirServicoProfissional(${s.id})">Excluir</button></span></div>`).join('') : '<p>Você ainda não cadastrou serviços.</p>';
+    const cards = document.querySelector('#servicos .cards-container');
+    if (cards) cards.innerHTML = servicos.map(s => `<div class="card"><h3>${escaparHTML(s.nome)}</h3><p class="price">${Number(s.preco).toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}</p><p class="duration">${escaparHTML(s.profissional)} · ${s.duracao_minutos} min</p><p>${escaparHTML(s.descricao || '')}</p></div>`).join('');
+  } catch (e) { area.textContent = 'Não foi possível carregar os serviços: ' + e.message; }
+}
+
+async function cadastrarServicoProfissional(event) {
+  event.preventDefault();
+  const dados = {nome:document.getElementById('servico-nome').value.trim(), preco:document.getElementById('servico-preco').value, duracao_minutos:document.getElementById('servico-duracao').value, descricao:document.getElementById('servico-descricao').value.trim()};
+  try {
+    const resp = await fetch(API_BASE + '/servicos', {method:'POST', headers:{'Content-Type':'application/json'}, credentials:'same-origin', body:JSON.stringify(dados)});
+    const resultado = await resp.json();
+    if (!resp.ok) throw new Error(resultado.erro || 'Não foi possível cadastrar.');
+    document.getElementById('formServicoProfissional').reset();
+    document.getElementById('servico-duracao').value = 60;
+    alert(resultado.mensagem); carregarServicosProfissional();
+  } catch(e) { alert(e.message); }
+}
+
+async function editarServicoProfissional(id) {
+  try {
+    const resp = await fetch(API_BASE + '/servicos');
+    const lista = await resp.json();
+    const servico = lista.find(s => Number(s.id) === Number(id) && s.usuario === usuarioLogado);
+    if (!servico) throw new Error('Serviço não encontrado.');
+    const nome = prompt('Nome do serviço:', servico.nome);
+    if (nome === null) return;
+    const preco = prompt('Preço (R$):', servico.preco);
+    if (preco === null) return;
+    const duracao = prompt('Duração em minutos:', servico.duracao_minutos);
+    if (duracao === null) return;
+    const descricao = prompt('Descrição:', servico.descricao || '');
+    if (descricao === null) return;
+    const atualizacao = await fetch(API_BASE + '/servicos/' + id, {method:'PUT', headers:{'Content-Type':'application/json'}, credentials:'same-origin', body:JSON.stringify({nome, preco, duracao_minutos:duracao, descricao})});
+    const resultado = await atualizacao.json();
+    if (!atualizacao.ok) throw new Error(resultado.erro || 'Não foi possível atualizar.');
+    alert(resultado.mensagem);
+    await carregarServicosProfissional();
+    if (document.getElementById('ag-profissional').value) await atualizarServicosAgendamento();
+  } catch(e) { alert(e.message); }
+}
+
+async function excluirServicoProfissional(id) {
+  if (!confirm('Deseja excluir este serviço?')) return;
+  try {
+    const resp = await fetch(API_BASE + '/servicos/' + id, {method:'DELETE', credentials:'same-origin'});
+    const resultado = await resp.json();
+    if (!resp.ok) throw new Error(resultado.erro || 'Não foi possível excluir.');
+    carregarServicosProfissional();
+  } catch(e) { alert(e.message); }
+}
+
+window.addEventListener("load", function() {
+  carregarProdutosDoBackend();
+  carregarServicosProfissional();
+  atualizarServicosAgendamento();
+  carregarClientesBackend();
+  carregarVendasBackend();
+  carregarItensVenda();
+
+  document.getElementById("venda-data").value =
+    new Date().toISOString().slice(0, 10);
+
+  preencherFormulariosComCliente();
+  document.getElementById("car-cpf").addEventListener("blur", buscarClientePorCpf);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: estetica-keli-kuhn
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: DATABASE_URL
+        sync: false
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: SESSION_COOKIE_SECURE
+        value: "1"
+      - key: KELI_PASSWORD
+        sync: false
+      - key: AMANDA_PASSWORD
+        sync: false
+      - key: KELI_CPF
+        sync: false
